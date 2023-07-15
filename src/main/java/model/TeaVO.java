@@ -1,5 +1,6 @@
 package model;
 
+// 지현 수정
 public class TeaVO {
 	private int teaNum;
 	private String teaName;
