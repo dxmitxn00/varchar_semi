@@ -48,6 +48,7 @@ public class TeaDAO {
 
 		JDBCUtil.disconnect(rs, pstmt, conn);
 
+		System.out.println(datas);
 		return datas;	
 	}
 	

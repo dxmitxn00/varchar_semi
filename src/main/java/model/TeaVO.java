@@ -14,7 +14,7 @@ public class TeaVO {
 	private String imageUrl;
 	
 	public TeaVO() {
-		this(0,"", 0, 0, "", "");
+		this(0, "", 0, 0, "", "");
 	}
 	
 	public TeaVO(int teaNum, String teaName, int teaPrice, int teaCnt, String teaCategory, String teaContent) {
