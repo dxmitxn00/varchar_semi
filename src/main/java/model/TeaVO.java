@@ -11,7 +11,7 @@ public class TeaVO {
 
 	// 임시변수
 	private String teaSearchWord;
-	private String imageUrl;
+	private String imageUrl; 
 	
 	public TeaVO() {
 		this(0, "", 0, 0, "", "");
