@@ -9,6 +9,7 @@ public class MemberVO {
 	private String memberEmail;
 	
 	// 임시변수
+	private String memberSearch;
 	
 	public MemberVO() {
 		this("","","","",0,"");
@@ -70,6 +71,15 @@ public class MemberVO {
 	public void setMemberEmail(String memberEmail) {
 		this.memberEmail = memberEmail;
 	}
+
+	public String getMemberSearch() {
+		return memberSearch;
+	}
+
+	public void setMemberSearch(String memberSearch) {
+		this.memberSearch = memberSearch;
+	}
+	
 	
 	
 
