@@ -10,9 +10,13 @@ public class ReviewDAO {
 	private ResultSet rs;
 	
 	static final private String SQL_SELECTALL = "";
-	static final private String SQL_SELECTONE = "";
-	static final private String SQL_INSERT = "";
-	static final private String SQL_UPDATE = "";
-	static final private String SQL_DELETE = "";
+	static final private String SQL_SELECTONE = "SELECT REVIEW_NUM, MEMBER_ID, BUY_SERIAL, REVIEW_TITLE, REVIEW_CONTENT "
+			+ "FROM REVIEW "
+			+ "WHERE REVIEW_NUM = ?;";
+	static final private String SQL_INSERT = "INSERT INTO REVIEW(MEMBER_ID, BUY_SERIAL, REVIEW_TITLE, REVIEW_CONTENT) VALUES( ?, ?, ?, ?);";
+	static final private String SQL_UPDATE = "UPDATE REVIEW SET REVIEW_TITLE = ?, REVIEW_CONTENT =? WHERE REVIEW_NUM = ?;";
+	static final private String SQL_DELETE = "DELETE FROM REVIEW WHERE REVIEW_NUM = ?;";
+	
+	
 
 }
