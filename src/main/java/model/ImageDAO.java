@@ -11,8 +11,8 @@ public class ImageDAO {
 	private PreparedStatement pstmt;
 	private ResultSet rs;
 	
-	static final private String SQL_SELECTALL = "";
-	static final private String SQL_SELECTONE = "";
+	static final private String SQL_SELECTALL = "SELECT IMAGE_URL, IMAGE_DIVISION FROM IMAGE WHERE TEA_NUM = ?;";
+//	static final private String SQL_SELECTONE = "";
 //	static final private String SQL_INSERT = "";
 //	static final private String SQL_UPDATE = "";
 //	static final private String SQL_DELETE = "";
@@ -24,19 +24,14 @@ public class ImageDAO {
 
 		try {
 			pstmt=conn.prepareStatement(SQL_SELECTALL);
-//			pstmt.setString(1, tVO.getTeaCategory());
-//			pstmt.setString(2, tVO.getTeaSearchWord());
-//			pstmt.setString(3, tVO.getTeaSearchWord());
+			pstmt.setInt(1, iVO.getTeaNum());
+
 			rs=pstmt.executeQuery();
 
 			while(rs.next()) {
 				ImageVO data=new ImageVO();
-//				data.setTeaNum(rs.getInt("TEA_NUM"));
-//				data.setTeaName(rs.getString("TEA_Name"));
-//				data.setTeaPrice(rs.getInt("TEA_PRICE"));
-//				data.setTeaCnt(rs.getInt("TEA_CNT"));
-//				data.setTeaCategory(rs.getString("TEA_CATEGORY"));
-//				data.setTeaContent(rs.getString("TEA_CONTENT"));
+				data.setImageUrl(rs.getString("IMAGE_URL"));
+				data.setImageDivision(rs.getInt("IMAGE_DIVISION"));
 				datas.add(data);
 			}
 		} catch (SQLException e) {
@@ -49,39 +44,17 @@ public class ImageDAO {
 	}
 	
 	public ImageVO selectOne(ImageVO iVO){
-		conn=JDBCUtil.connect();
-
-		//TeaVO data=null;
-		ImageVO data=new ImageVO();
-		
-		try {
-			pstmt=conn.prepareStatement(SQL_SELECTONE);
-			pstmt.setInt(1, iVO.getTeaNum());
-			rs=pstmt.executeQuery();
-
-			if(rs.next()) {
-//				data.setTeaNum(rs.getInt("TEA_NUM"));
-//				data.setTeaName(rs.getString("TEA_Name"));
-//				data.setTeaPrice(rs.getInt("TEA_PRICE"));
-//				data.setTeaCnt(rs.getInt("TEA_CNT"));
-//				data.setTeaCategory(rs.getString("TEA_CATEGORY"));
-//				data.setTeaContent(rs.getString("TEA_CONTENT"));
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-		JDBCUtil.disconnect(rs, pstmt, conn);
-
-		return data;
+		return null;
 	}
 
 	public boolean insert(ImageVO iVO) {
 		return false;
 	}
+	
 	public boolean update(ImageVO iVO) {
 		return false;
 	}
+	
 	public boolean delete(ImageVO iVO) {
 		return false;
 	}

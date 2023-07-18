@@ -16,12 +16,12 @@
                             <li class="active"><a href="./index.jsp">Home</a></li>
                             <li><a href="#">상품</a>
                                 <ul class="header__menu__dropdown">
-                                    <li><a id="all" href="./shop-details.html">전체</a></li>
-                                    <li><a id="greentea" href="./shoping-cart.html">녹차</a></li>
-                                    <li><a id="redtea" href="./checkout.html" >홍차</a></li>
-                                    <li><a id="louis" href="./checkout.html" >루이보스</a></li>
-                                    <li><a id="bluetea" href="./checkout.html" >우롱차</a></li>
-                                    <li><a id="herb" href="./checkout.html" >허브차</a></li>
+                                    <li><a id="all" href="./shoplist.jsp">전체</a></li>
+                                    <li><a id="greentea" href="./shoplist.jsp">녹차</a></li>
+                                    <li><a id="redtea" href="./shoplist.jsp" >홍차</a></li>
+                                    <li><a id="louis" href="./shoplist.jsp" >루이보스</a></li>
+                                    <li><a id="bluetea" href="./shoplist.jsp" >우롱차</a></li>
+                                    <li><a id="herb" href="./shoplist.jsp" >허브차</a></li>
                                     <!-- href에 tea.do는 똑같이 하되, cate를 다 다르게 해준다! -->
                                 </ul>
                             </li>
@@ -35,7 +35,7 @@
                     <div class="header__cart">
                         <ul>
                         <c:if test="${empty memberId}">
-                        	<li><a href="./signup.jsp"><!-- signup.do --><img src=img/signup.png alt="회원가입" width="24" height="24" border="1"></a></li>
+                           <li><a href="./signup.jsp"><!-- signup.do --><img src=img/signup.png alt="회원가입" width="24" height="24" border="1"></a></li>
                             <li><a href="./login.jsp"><!-- login.do --><img src="img/login.jpg" alt="로그인" width="24" height="24" border="1"></a></li>
                         </c:if> 
                         <c:if test="${not empty memberId}">
