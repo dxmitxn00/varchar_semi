@@ -1,5 +1,6 @@
 package model;
 
+// 지현 수정
 public class TeaVO {
 	private int teaNum;
 	private String teaName;
@@ -10,10 +11,10 @@ public class TeaVO {
 
 	// 임시변수
 	private String teaSearchWord;
-	private String imageUrl;
+	private String imageUrl; 
 	
 	public TeaVO() {
-		this(0,"", 0, 0, "", "");
+		this(0, "", 0, 0, "", "");
 	}
 	
 	public TeaVO(int teaNum, String teaName, int teaPrice, int teaCnt, String teaCategory, String teaContent) {
