@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class LogoutAction implements Action {
 
@@ -13,10 +14,13 @@ public class LogoutAction implements Action {
 			throws ServletException, IOException {
 
 		ActionForward forward = new ActionForward();
-		
-//		forward.setRedirect(true);
-//		forward.setPath("");
-		
+			
+		HttpSession session = request.getSession();
+		session.removeAttribute("ssMemberId");
+				
+		forward.setRedirect(true);
+		forward.setPath("main.do");
+				
 		return forward;
 	}
 
