@@ -260,7 +260,7 @@ function test02(){
 								<div class="col-lg-6">
 									<div class="checkout__input">
 										<p>
-											연락처<span>*</span>
+											연락처
 										</p>
 										<input type="text" name="memberPhone" placeholder="-(하이픈)을 빼고 입력하세요" required>
 									</div>
@@ -268,7 +268,7 @@ function test02(){
 								<div class="col-lg-6">
 									<div class="checkout__input">
 										<p>
-											Email<span>*</span>
+											Email
 										</p>
 										<input type="text" name="memberEmail" placeholder="@ 포함 정확하게 입력하세요" required>
 									</div>
