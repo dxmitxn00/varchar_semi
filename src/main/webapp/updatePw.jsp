@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="try" %>
 <!DOCTYPE html>
 <html lang="">
@@ -25,7 +26,7 @@
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <style type="text/css">
-    	.checkout__form > a, .updateInfo {
+    	.checkout__form > a, .updatePw {
     		display: inline-block;
    	 		font-size: 17px;
     		color: #1c1c1c;
@@ -62,18 +63,24 @@
     		margin-bottom: 20px;
     	}
     </style>
-   <script type="text/javascript">
-    	function checkPh() {
- 	  		var ph = document.getElementById('mPhone').value;
+    <script type="text/javascript">
+    	function checkPw() {
+ 	  		var nPw = document.getElementById('newPw').value;
+       		var cnPw = document.getElementById('checkNewPw').value;
                 		
-       		if(ph.length == 11){
-       			return true;
-       		}
-   			alert('전화번호는 하이픈(-) 공백없이 11자리 입력해주세요.');
+       		if(nPw.length < 8){
+   				alert('비밀번호 설정은 8글자 이상부터 가능합니다.');
                 			
-       		return false;
+       			return false;
+       		}
+       		else if( nPw != cnPw ){
+                alert("새 비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+                			
+                return false;
+            }
+       		return true;
       	}
-    </script>
+                </script>
 </head>
 
 <body>
@@ -91,12 +98,12 @@
     <!-- Hero Section End -->
 
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="img/info.jpg">
+    <section class="breadcrumb-section set-bg" data-setbg="img/pw.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>회원 정보 수정</h2>
+                        <h2>비밀번호 변경</h2>
                         <div class="breadcrumb__option">
                             <a href="main.jsp">Home</a>
                             <span>My Page</span>
@@ -111,7 +118,7 @@
     <!-- Checkout Section Begin -->
     <section class="checkout spad">
         <div class="container">
-        	<h6><span class="icon_tag_alt"></span> 전화번호는 하이픈(-) 공백없이 11자리 입력해주세요.</h6>
+        	<h6><span class="icon_tag_alt"></span> 비밀번호 8자리 이상 입력하세요.</h6>
         </div>
             <div class="checkout__form">
             
@@ -119,37 +126,27 @@
                 <a href="updateInfo.jsp" class="mInfo__btn"> 회원 정보 수정 </a><a href="updatePw.jsp" class="mPw__btn"> 비밀번호 변경 </a>
                 		<!-- updateInfoPage.do -->									<!-- updatePwPage.do -->
                 
-                <!-- 회원정보 입력란 폼 -->
-                <form action="main.jsp" method="post" onsubmit="return checkPh();">
-                		<!-- updateInfo.do -->
+                <!-- 새 비밀번호 입력란 폼 -->
+                <form action="main.jsp" method="post" onsubmit="return checkPw()">
+                		<!-- updatePw.do -->
+                	<input type="hidden" name="mId" value="${ mId }">
                 	<div class="checkout__input">
-                    	<p>아이디</p>
-                    	<input type="text" name="mId" value="${ mId }" readonly>
-                    </div>
-                	<div class="checkout__input">
-                    	<p>이름</p>
-                    	<input type="text" name="mName">
+                    	<p>새 비밀번호</p>
+                    	<input type="password" id=newPw name=newPw required>
                     </div>
                     <div class="checkout__input">
-                        <p>전화번호</p>
-                        <input type="text" id="mPhone" name="mPhone">
+                        <p>비밀번호 확인</p>
+                        <input type="password" id="checkNewPw" name="checkNewPw" required>
                     </div>
-                    <div class="checkout__input">
-                        <p>이메일</p>
-                        <input type="text" name="mEmail">
-                    </div>
-                        <div class="checkout__input">
-                        <p>주소</p>
-                        <try:addressAPI/>
-                    </div>
-                    <input class="updateInfo" type="submit" value="수정">
+                    	<input class="updatePw" type="submit" value="변경">
                 </form>
+                
             </div>
     </section>
     <!-- Checkout Section End -->
 
     <!-- Footer Section Begin -->
-	<try:Footer/>
+    <try:Footer/>
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
