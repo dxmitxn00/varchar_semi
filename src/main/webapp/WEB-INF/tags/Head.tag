@@ -2,26 +2,27 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+<!-- 최신본임 -->
 <header class="header">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="./index.jsp"><!-- main.do --><img src="img/varLog3.png" alt=""></a>
+                        <a href="./main.jsp"><!-- main.do --><img src="img/varLog3.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="./index.jsp">Home</a></li>
+                            <li class="active"><a href="./main.jsp">Home</a></li>
                             <li><a href="#">상품</a>
                                 <ul class="header__menu__dropdown">
-                                    <li><a id="all" href="./shop-details.html">전체</a></li>
-                                    <li><a id="greentea" href="./shoping-cart.html">녹차</a></li>
-                                    <li><a id="redtea" href="./checkout.html" >홍차</a></li>
-                                    <li><a id="louis" href="./checkout.html" >루이보스</a></li>
-                                    <li><a id="bluetea" href="./checkout.html" >우롱차</a></li>
-                                    <li><a id="herb" href="./checkout.html" >허브차</a></li>
+                                    <li><a id="all" href="./shoplist.jsp">전체</a></li>
+                                    <li><a id="greentea" href="./shoplist.jsp">녹차</a></li>
+                                    <li><a id="redtea" href="./shoplist.jsp" >홍차</a></li>
+                                    <li><a id="louis" href="./shoplist.jsp" >루이보스</a></li>
+                                    <li><a id="bluetea" href="./shoplist.jsp" >우롱차</a></li>
+                                    <li><a id="herb" href="./shoplist.jsp" >허브차</a></li>
                                     <!-- href에 tea.do는 똑같이 하되, cate를 다 다르게 해준다! -->
                                 </ul>
                             </li>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="try" %>
 <!DOCTYPE html>
 <html lang="">
@@ -79,12 +80,12 @@
     <!-- Hero Section End -->
 
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="img/info.jpg">
+    <section class="breadcrumb-section set-bg" data-setbg="img/pw.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>회원 정보 수정</h2>
+                        <h2>비밀번호 변경</h2>
                         <div class="breadcrumb__option">
                             <a href="main.jsp">Home</a>
                             <span>My Page</span>
@@ -99,7 +100,7 @@
     <!-- Checkout Section Begin -->
     <section class="checkout spad">
         <div class="container">
-        	<h6><span class="icon_tag_alt"></span> 완료 후 '수정' 버튼을 눌러주세요.</h6>
+        	<h6><span class="icon_tag_alt"></span> 완료 후 '변경' 버튼을 눌러주세요.</h6>
         </div>
             <div class="checkout__form">
             
@@ -107,47 +108,23 @@
                 <a href="updateInfo.jsp" class="mInfo__btn"> 회원 정보 수정 </a><a href="updatePw.jsp" class="mPw__btn"> 비밀번호 변경 </a>
                 		<!-- updateInfoPage.do -->									<!-- updatePwPage.do -->
                 
-                <!-- 회원정보 입력란 폼 -->
+                <!-- 새 비밀번호 입력란 폼 -->
                 <form action="main.jsp" method="post">
-                		<!-- updateInfo.do -->
+                		<!-- updatePw.do -->
+                	<input type="hidden" name="mId" value="${ mid }">
                 	<div class="checkout__input">
-                    	<p>아이디</p>
-                    	<input type="text" name="mId" value="${ mid }" readonly>
-                    </div>
-                	<div class="checkout__input">
-                    	<p>이름</p>
-                    	<input type="text" name="mName">
+                    	<p>새 비밀번호</p>
+                    	<input type="password" name=newPw required>
                     </div>
                     <div class="checkout__input">
-                        <p>전화번호</p>
-                        <input type="text" name="mPhone">
+                        <p>비밀번호 확인</p>
+                        <input type="password" name="checkNewPw" required>
                     </div>
-                    <div class="checkout__input">
-                        <p>이메일</p>
-                        <input type="text" name="mEmail">
-                    </div>
-                        <div class="checkout__input">
-                        <p>주소</p>
-                        <try:addressAPI/>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        <!-- 주소는 데이터 어케 넘겨줌??? -->
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                    </div>
-                    <input class="updateInfo" type="submit" value="수정">
+                    	<input class="updateInfo" type="submit" value="변경">
                 </form>
+                
+                <!-- 새 비밀번호와 비밀번호 확인 일치 검사해야됨 -->
+                
             </div>
     </section>
     <!-- Checkout Section End -->
