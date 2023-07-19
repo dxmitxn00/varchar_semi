@@ -15,10 +15,14 @@ public class ReviewSetDAO {
 			+ "FROM TEA;";
 	
 	static final String SQL_SELECTALL_REVIEW = "SELECT R.REVIEW_NUM, R.MEMBER_ID, R.BUY_SERIAL, R.REVIEW_TITLE, R.REVIEW_CONTENT "
-			+ "FROM REVIEW "
-			+ "JOIN BUY_DETAIL BD USING(BUY_SERIAL) "
-			+ "JOIN BUY B USING(BUY) "
-			+ "WHERE BD.TEA_NUM=?;";
+			+ "FROM ("
+			+ "SELECT ROW_NUMBER() OVER(ORDER BY R.REVIEW_NUM) AS row_num, R.REVIEW_NUM, R.MEMBER_ID, R.BUY_SERIAL, R.REVIEW_TITLE, R.REVIEW_CONTENT "
+			+ "FROM REVIEW R "
+			+ "JOIN BUY_DETAIL BD USING (BUY_SERIAL) "
+			+ "JOIN BUY B USING(BUY_NUM) "
+			+ "WHERE BD.TEA_NUM=?"
+			+ ") AS reviews "
+			+ "WHERE row_num BETWEEN ? AND ?+6;";
 	
 	public ArrayList<ReviewSet> selectAll(ReviewSet rsVO){
 		conn=JDBCUtil.connect();
@@ -45,6 +49,8 @@ public class ReviewSetDAO {
 				// 후기 여러개
 				pstmt=conn.prepareStatement(SQL_SELECTALL_REVIEW);
 				pstmt.setInt(1, data.getTeaNum());
+				pstmt.setInt(2, data.getPagingCnt());
+				pstmt.setInt(3, data.getPagingCnt());
 				
 				ResultSet rs2 = pstmt.executeQuery();
 				ArrayList<ReviewVO> rdatas = new ArrayList<ReviewVO>();
@@ -57,7 +63,6 @@ public class ReviewSetDAO {
 					rVO.setReviewContent(rs.getString("REVIEW_CONTENT"));
 					rdatas.add(rVO);
 				}
-				//////////
 				
 				pr.setRdatas(rdatas);
 				datas.add(pr);

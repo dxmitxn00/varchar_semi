@@ -11,11 +11,17 @@ public class ReviewDAO {
 	private PreparedStatement pstmt;
 	private ResultSet rs;
 	
-	static final private String SQL_SELECTALL = "SELECT REVIEW_NUM, MEMBER_ID, BUY_SERIAL, REVIEW_TITLE, REVIEW_CONTENT "
-			+ "FROM REVIEW;";
-	static final private String SQL_SELECTALL_MEMBER = "SELECT REVIEW_NUM, MEMEBER_ID, BUY_SERIAL, REVIEW_TITLE, REVIEW_CONTENT "
+//	static final private String SQL_SELECTALL = "SELECT REVIEW_NUM, MEMBER_ID, BUY_SERIAL, REVIEW_TITLE, REVIEW_CONTENT "
+//			+ "FROM REVIEW "
+//			+ "LIMIT ?,?;";
+	static final private String SQL_SELECTALL_MEMBER = "SELECT REVIEW_NUM, MEMBER_ID, BUY_SERIAL, REVIEW_TITLE, REVIEW_CONTENT "
+			+ "FROM("
+			+ "SELECT ROW_NUMBER() OVER(ORDER BY REVIEW_NUM) AS row_num, "
+			+ "REVIEW_NUM, MEMBER_ID, BUY_SERIAL, REVIEW_TITLE, REVIEW CONTENT "
 			+ "FROM REVIEW "
-			+ "WHERE MEMBER_ID=?";
+			+ "WHERE MEMBER_ID=?"
+			+ ") AS reviews "
+			+ "WHERE row_num BETWEEN ? AND ?+6;";
 	static final private String SQL_SELECTONE = "SELECT REVIEW_NUM, MEMBER_ID, BUY_SERIAL, REVIEW_TITLE, REVIEW_CONTENT "
 			+ "FROM REVIEW R "
 			+ "WHERE R.REVIEW_NUM=?";
@@ -29,15 +35,12 @@ public class ReviewDAO {
 		ArrayList<ReviewVO> datas = new ArrayList<ReviewVO>();
 
 		try {
-			if(rVO.getReviewSearch().equals("ALL")) {
-				pstmt = conn.prepareStatement(SQL_SELECTALL);
-				rs = pstmt.executeQuery();
-			}
-			else if(rVO.getReviewSearch().equals("MEMBER")) {
 				pstmt = conn.prepareStatement(SQL_SELECTALL_MEMBER);
 				pstmt.setString(1, rVO.getMemberId());
+				pstmt.setInt(2, rVO.getPagingCnt());
+				pstmt.setInt(3, rVO.getPagingCnt());
 				rs = pstmt.executeQuery();
-			}
+				
 			while (rs.next()) {
 				ReviewVO data = new ReviewVO();
 				data.setReviewNum(rs.getInt("REVEIW_NUM"));
