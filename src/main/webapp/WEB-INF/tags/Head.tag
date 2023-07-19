@@ -35,6 +35,7 @@
                 <div class="col-lg-3">
                     <div class="header__cart">
                         <ul>
+<<<<<<< HEAD
                         <c:if test="${empty memberId}">
                         	<li><a href="./signup.jsp"><!-- signup.do --><img src=img/signup.png alt="회원가입" width="24" height="24" border="1"></a></li>
                             <li><a href="./login.jsp"><!-- login.do --><img src="img/login.jpg" alt="로그인" width="24" height="24" border="1"></a></li>
