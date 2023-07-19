@@ -7,7 +7,11 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
+<<<<<<< HEAD
+                        <a href="./index.jsp"><!-- main.do --><img src="img/varLog3.png" alt=""></a>
+=======
                         <a href="./index.jsp"><img src="img/varLog3.png" alt=""></a>
+>>>>>>> 620dba359b357fe9b16a78b6e13878f3f39ba1cd
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -34,8 +38,20 @@
                 <div class="col-lg-3">
                     <div class="header__cart">
                         <ul>
+<<<<<<< HEAD
+                        <c:if test="${empty memberId}">
+                        	<li><a href="./signup.jsp"><!-- signup.do --><img src=img/signup.png alt="회원가입" width="24" height="24" border="1"></a></li>
+                            <li><a href="./login.jsp"><!-- login.do --><img src="img/login.jpg" alt="로그인" width="24" height="24" border="1"></a></li>
+                        </c:if> 
+                        <c:if test="${not empty memberId}">
+                            <li><a href="#"><!-- favorPage.do --><i class="fa fa-heart"></i> <span>1</span></a></li>
+                            <li><a href="#"><!-- cartPage.do --><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                            <li><a href="./main.jsp"><!-- logout.do --><img src="img/logout.png" alt="로그아웃" width="24" height="24" border="1"></a></li>
+                        </c:if>  
+=======
                         	<li><a href="./signup.jsp"><img src=img/signup.png alt="회원가입" width="24" height="24" border="1"></a></li>
                             <li><a href="./login.jsp"><img src="img/login.jpg" alt="로그인" width="24" height="24" border="1"></a></li>
+>>>>>>> 620dba359b357fe9b16a78b6e13878f3f39ba1cd
                         </ul>
                     </div>
                 </div>
