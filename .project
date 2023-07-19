@@ -28,18 +28,6 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>src/main/webapp/img/info.jpg</name>
-			<type>1</type>
-			<locationURI>PARENT-4-PROJECT_LOC/info.jpg</locationURI>
-		</link>
-		<link>
-			<name>src/main/webapp/img/pw.jpg</name>
-			<type>1</type>
-			<locationURI>PARENT-4-PROJECT_LOC/pw.jpg</locationURI>
-		</link>
-	</linkedResources>
 	<filteredResources>
 		<filter>
 			<id>1689426754495</id>
