@@ -5,6 +5,9 @@
 <!DOCTYPE html>
 <html lang="">
 
+<!-- ● memberID 데이터 필요 -->
+<!-- ● memberPw 데이터 보냄 -->
+
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Ogani Template">
@@ -26,7 +29,7 @@
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <style type="text/css">
-    	.checkout__form > a, .updateInfo {
+    	.checkout__form > a, .updatePw {
     		display: inline-block;
    	 		font-size: 17px;
     		color: #1c1c1c;
@@ -63,6 +66,24 @@
     		margin-bottom: 20px;
     	}
     </style>
+    <script type="text/javascript">
+    	function checkPw() {
+ 	  		var nPw = document.getElementById('newPw').value;
+       		var cnPw = document.getElementById('checkNewPw').value;
+                		
+       		if(nPw.length < 8){
+   				alert('비밀번호 설정은 8글자 이상부터 가능합니다.');
+                			
+       			return false;
+       		}
+       		else if( nPw != cnPw ){
+                alert("새 비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+                			
+                return false;
+            }
+       		return true;
+      	}
+                </script>
 </head>
 
 <body>
@@ -100,7 +121,7 @@
     <!-- Checkout Section Begin -->
     <section class="checkout spad">
         <div class="container">
-        	<h6><span class="icon_tag_alt"></span> 완료 후 '변경' 버튼을 눌러주세요.</h6>
+        	<h6><span class="icon_tag_alt"></span> 비밀번호 8자리 이상 입력하세요.</h6>
         </div>
             <div class="checkout__form">
             
@@ -109,92 +130,26 @@
                 		<!-- updateInfoPage.do -->									<!-- updatePwPage.do -->
                 
                 <!-- 새 비밀번호 입력란 폼 -->
-                <form action="main.jsp" method="post">
+                <form action="main.jsp" method="post" onsubmit="return checkPw()">
                 		<!-- updatePw.do -->
-                	<input type="hidden" name="mId" value="${ mid }">
+                	<input type="hidden" name="memberId" value="${ memberId }">
                 	<div class="checkout__input">
                     	<p>새 비밀번호</p>
-                    	<input type="password" name=newPw required>
+                    	<input type="password" id=newPw name=newPw required>
                     </div>
                     <div class="checkout__input">
                         <p>비밀번호 확인</p>
-                        <input type="password" name="checkNewPw" required>
+                        <input type="password" id="checkNewPw" name="checkNewPw" required>
                     </div>
-                    	<input class="updateInfo" type="submit" value="변경">
+                    	<input class="updatePw" type="submit" value="변경">
                 </form>
-                
-                <!-- 새 비밀번호와 비밀번호 확인 일치 검사해야됨 -->
                 
             </div>
     </section>
     <!-- Checkout Section End -->
 
     <!-- Footer Section Begin -->
-    <footer class="footer spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="footer__about">
-                        <div class="footer__about__logo">
-                            <a href="./index.html"><img src="img/logo.png" alt=""></a>
-                        </div>
-                        <ul>
-                            <li>Address: 60-49 Road 11378 New York</li>
-                            <li>Phone: +65 11.188.888</li>
-                            <li>Email: hello@colorlib.com</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
-                    <div class="footer__widget">
-                        <h6>Useful Links</h6>
-                        <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">About Our Shop</a></li>
-                            <li><a href="#">Secure Shopping</a></li>
-                            <li><a href="#">Delivery infomation</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Our Sitemap</a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="#">Who We Are</a></li>
-                            <li><a href="#">Our Services</a></li>
-                            <li><a href="#">Projects</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Innovation</a></li>
-                            <li><a href="#">Testimonials</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-12">
-                    <div class="footer__widget">
-                        <h6>Join Our Newsletter Now</h6>
-                        <p>Get E-mail updates about our latest shop and special offers.</p>
-                        <form action="#">
-                            <input type="text" placeholder="Enter your mail">
-                            <button type="submit" class="site-btn">Subscribe</button>
-                        </form>
-                        <div class="footer__widget__social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-pinterest"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="footer__copyright">
-                        <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
-                        <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <try:Footer/>
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->

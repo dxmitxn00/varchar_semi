@@ -3,29 +3,29 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <style type="text/css">
-	#address > input {
-		width: 50%;
-    	height: 46px;
-    	border: 1px solid #ebebeb;
-    	padding-left: 20px;
-    	font-size: 16px;
-    	color: #b2b2b2;
-    	border-radius: 4px;
-    	text-align: center;
-    	margin: auto;
-	}
-	#sample4_detailAddress {
-		margin-bottom: 100px;
-	}
+   #address > input {
+      width: 50%;
+       height: 46px;
+       border: 1px solid #ebebeb;
+       padding-left: 20px;
+       font-size: 16px;
+       color: #b2b2b2;
+       border-radius: 4px;
+       text-align: center;
+       margin: auto;
+   }
+   #sample4_detailAddress {
+      margin-bottom: 100px;
+   }
 </style>
 
 <div id=address>
-	<input type="button" id="addressBtn" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-	<input type="text" id="sample4_postcode" placeholder="우편번호" readonly>
-	<input type="text" id="sample4_roadAddress" placeholder="도로명주소" readonly>
-	<input type="text" id="sample4_jibunAddress" placeholder="지번주소" readonly>
-	<input type="text" id="sample4_extraAddress" placeholder="참고항목" readonly>
-	<input type="text" id="sample4_detailAddress" placeholder="상세주소">
+   <input type="button" id="addressBtn" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
+   <input type="text" id="sample4_postcode" placeholder="우편번호" readonly>
+   <input type="text" id="sample4_roadAddress" placeholder="도로명주소" readonly>
+   <input type="text" id="sample4_jibunAddress" placeholder="지번주소" readonly>
+   <input type="text" id="sample4_extraAddress" placeholder="참고항목" readonly>
+   <input type="text" id="sample4_detailAddress" placeholder="상세주소">
 </div>
 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
