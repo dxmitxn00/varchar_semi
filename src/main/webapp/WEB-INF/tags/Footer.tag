@@ -8,7 +8,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__about__logo">
-                            <a href="./main.jsp"><img src="img/varLog3.png" alt=""></a>
+                            <a href="main.do"><img src="img/varLog3.png" alt=""></a>
                         </div>
                         <ul>
                             <li>주소: 서울특별시 강남구 테헤란로 26길 12 제일비전타워 13층	</li>
