@@ -4,6 +4,12 @@
 <!DOCTYPE html>
 <html lang="">
 
+<!-- ● memberID 데이터 필요 -->
+<!-- ● memberID, memberPw,
+	   memberName, memberAddress,
+	   memberPhone, memberEmail 데이터 보냄 -->
+
+
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Ogani Template">
@@ -64,9 +70,9 @@
     </style>
    <script type="text/javascript">
     	function checkPh() {
- 	  		var ph = document.getElementById('mPhone').value;
+ 	  		var ph = document.getElementById('memberPhone').value;
                 		
-       		if(ph.length == 11){
+       		if(ph.length == 11 || ph == ''){
        			return true;
        		}
    			alert('전화번호는 하이픈(-) 공백없이 11자리 입력해주세요.');
@@ -116,27 +122,26 @@
             <div class="checkout__form">
             
             	<!-- 정보수정 / 비번변경 버튼 -->
-                <a href="updateInfo.jsp" class="mInfo__btn"> 회원 정보 수정 </a><a href="updatePw.jsp" class="mPw__btn"> 비밀번호 변경 </a>
-                		<!-- updateInfoPage.do -->									<!-- updatePwPage.do -->
+                <a href="updateInfoPage.do" class="mInfo__btn"> 회원 정보 수정 </a><a href="updatePwPage.do" class="mPw__btn"> 비밀번호 변경 </a>
                 
                 <!-- 회원정보 입력란 폼 -->
                 <form action="main.jsp" method="post" onsubmit="return checkPh();">
                 		<!-- updateInfo.do -->
                 	<div class="checkout__input">
                     	<p>아이디</p>
-                    	<input type="text" name="mId" value="${ mId }" readonly>
+                    	<input type="text" name="memberID" value="${ memberId }" readonly>
                     </div>
                 	<div class="checkout__input">
                     	<p>이름</p>
-                    	<input type="text" name="mName">
+                    	<input type="text" name="memberName">
                     </div>
                     <div class="checkout__input">
                         <p>전화번호</p>
-                        <input type="text" id="mPhone" name="mPhone">
+                        <input type="text" id="memberPhone" name="memberPhone">
                     </div>
                     <div class="checkout__input">
                         <p>이메일</p>
-                        <input type="text" name="mEmail">
+                        <input type="text" name="memberEmail">
                     </div>
                         <div class="checkout__input">
                         <p>주소</p>

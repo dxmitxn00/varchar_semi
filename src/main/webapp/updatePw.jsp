@@ -5,6 +5,9 @@
 <!DOCTYPE html>
 <html lang="">
 
+<!-- ● memberID 데이터 필요 -->
+<!-- ● memberPw 데이터 보냄 -->
+
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Ogani Template">
@@ -129,7 +132,7 @@
                 <!-- 새 비밀번호 입력란 폼 -->
                 <form action="main.jsp" method="post" onsubmit="return checkPw()">
                 		<!-- updatePw.do -->
-                	<input type="hidden" name="mId" value="${ mId }">
+                	<input type="hidden" name="memberId" value="${ memberId }">
                 	<div class="checkout__input">
                     	<p>새 비밀번호</p>
                     	<input type="password" id=newPw name=newPw required>
