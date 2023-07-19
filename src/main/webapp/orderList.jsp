@@ -5,6 +5,11 @@
 <!DOCTYPE html>
 <html lang="zxx">
 
+<!-- ● bdatas 객체배열
+		{ buyNum(주문번호),
+	   	  teaPice(상품가격) } 데이터 필요 -->
+<!-- ● buyNum(주문번호) 데이터 보냄 -->
+
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Ogani Template">
@@ -38,6 +43,12 @@
     		color: #ffffff;
     		border: none;
     		font-size: 1rem;
+    	}
+    	.shoping__cart__table table tbody .orderInfo{
+    		font-size: 16px;
+    		color: #1c1c1c;
+    		list-style: none;
+    		line-height: 36px;
     	}
     </style>
 </head>
@@ -110,14 +121,14 @@
     <!-- Hero Section End -->
 
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
+    <section class="breadcrumb-section set-bg" data-setbg="img/orderList.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
                         <h2>주문 내역</h2>
                         <div class="breadcrumb__option">
-                            <a href="./index.html">Home</a>
+                            <a href="main.jsp">Home</a>
                             <span>Order List</span>
                         </div>
                     </div>
@@ -145,15 +156,15 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                <c:forEach var="v" items="${ bdatas }">
+                                <%-- <c:forEach var="v" items="${ bdatas }"> --%>
 									<tr>
-										<td class="orderInfo"><a href="orderDetail.do?num=${ v.buyNum }">${ v.buyNum }</a></td>
+										<td class="orderInfo"><a href="orderDetail.do?num=${ v.buyNum }">주문번호${ v.buyNum }</a></td>
 										<td class="orderInfo">가격</td>
 										<td>
-											<input type="submit" class="orderInfo" type="submit" value="다시 담기">
+											<input type="submit" value="다시 담기">
 										</td>
 									</tr>
-								</c:forEach>                                
+								<%-- </c:forEach> --%>                                 
                             </tbody>
                         </table>
                         </form>
