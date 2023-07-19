@@ -17,11 +17,11 @@ public class ReviewSetDAO {
 	static final String SQL_SELECTALL_REVIEW = "SELECT R.REVIEW_NUM, R.MEMBER_ID, R.BUY_SERIAL, R.REVIEW_TITLE, R.REVIEW_CONTENT "
 			+ "FROM ("
 			+ "SELECT ROW_NUMBER() OVER(ORDER BY R.REVIEW_NUM) AS row_num, R.REVIEW_NUM, R.MEMBER_ID, R.BUY_SERIAL, R.REVIEW_TITLE, R.REVIEW_CONTENT "
-			+ "FROM REVIEW R "
+			+ "FROM REVIEW R"
 			+ "JOIN BUY_DETAIL BD USING (BUY_SERIAL) "
 			+ "JOIN BUY B USING(BUY_NUM) "
 			+ "WHERE BD.TEA_NUM=?"
-			+ ") AS reviews "
+			+ ") AS R "
 			+ "WHERE row_num BETWEEN ? AND ?+6;";
 	
 	public ArrayList<ReviewSet> selectAll(ReviewSet rsVO){

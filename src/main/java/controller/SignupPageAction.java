@@ -14,8 +14,8 @@ public class SignupPageAction implements Action {
 
 		ActionForward forward = new ActionForward();
 		
-//		forward.setRedirect(true);
-//		forward.setPath("");
+		forward.setRedirect(true);
+		forward.setPath("signup.jsp");
 		
 		return forward;
 	}
