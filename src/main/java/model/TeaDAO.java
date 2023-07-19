@@ -13,7 +13,9 @@ public class TeaDAO {
 
 	static final private String SQL_SELECTALL = "SELECT t.TEA_NUM, t.TEA_NAME, t.TEA_PRICE, t.TEA_CNT, t.TEA_CATEGORY, t.TEA_CONTENT, i.IMAGE_URL\r\n"
 			+ "FROM TEA t JOIN IMAGE i USING (TEA_NUM)\r\n"
-			+ "WHERE t.TEA_CATEGORY LIKE CONCAT('%', ?, '%') AND (t.TEA_NAME LIKE CONCAT('%', ?, '%') OR t.TEA_CONTENT LIKE CONCAT('%', ?, '%')) AND i.IMAGE_DIVISION = 1;";
+			+ "WHERE t.TEA_CATEGORY LIKE CONCAT('%', ?, '%') AND (t.TEA_NAME LIKE CONCAT('%', ?, '%') OR t.TEA_CONTENT LIKE CONCAT('%', ?, '%')) AND i.IMAGE_DIVISION = 1 "
+			+ "ORDER BY t.TEA_NUM "
+			+ "LIMIT ?+6 OFFSET ?;";
 	static final private String SQL_SELECTONE = "SELECT TEA_NUM, TEA_NAME, TEA_PRICE, TEA_CNT, TEA_CATEGORY, TEA_CONTENT FROM TEA WHERE TEA_NUM = ?;";
 	static final private String SQL_UPDATE = "UPDATE TEA SET TEA_CNT = ? WHERE TEA_NUM = ?";
 //	static final private String SQL_INSERT = "";
@@ -29,6 +31,8 @@ public class TeaDAO {
 			pstmt.setString(1, tVO.getTeaCategory());
 			pstmt.setString(2, tVO.getTeaSearchWord());
 			pstmt.setString(3, tVO.getTeaSearchWord());
+			pstmt.setInt(4, tVO.getPagingCnt());
+			pstmt.setInt(5, tVO.getPagingCnt());
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
