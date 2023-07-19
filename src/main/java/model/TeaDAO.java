@@ -15,7 +15,7 @@ public class TeaDAO {
 			+ "FROM TEA t JOIN IMAGE i USING (TEA_NUM)\r\n"
 			+ "WHERE t.TEA_CATEGORY LIKE CONCAT('%', ?, '%') AND (t.TEA_NAME LIKE CONCAT('%', ?, '%') OR t.TEA_CONTENT LIKE CONCAT('%', ?, '%')) AND i.IMAGE_DIVISION = 1 "
 			+ "ORDER BY t.TEA_NUM "
-			+ "OFFSET ? ROWS FETCH NEXT ?+6 ROWS ONLY;";
+			+ "LIMIT ?+6 OFFSET ?;";
 	static final private String SQL_SELECTONE = "SELECT TEA_NUM, TEA_NAME, TEA_PRICE, TEA_CNT, TEA_CATEGORY, TEA_CONTENT FROM TEA WHERE TEA_NUM = ?;";
 	static final private String SQL_UPDATE = "UPDATE TEA SET TEA_CNT = ? WHERE TEA_NUM = ?";
 //	static final private String SQL_INSERT = "";
