@@ -1,14 +1,14 @@
 <%@ tag language="java" pageEncoding="UTF-8"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!-- -->
+
 <footer class="footer spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__about__logo">
-                            <a href="./index.html"><img src="img/varLog3.png" alt=""></a>
+                            <a href="./main.jsp"><img src="img/varLog3.png" alt=""></a>
                         </div>
                         <ul>
                             <li>주소: 서울특별시 강남구 테헤란로 26길 12 제일비전타워 13층	</li>

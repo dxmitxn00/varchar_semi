@@ -11,16 +11,24 @@ public class ReviewDAO {
 	private PreparedStatement pstmt;
 	private ResultSet rs;
 	
-	static final private String SQL_SELECTALL = "SELECT REVIEW_NUM, MEMBER_ID, BUY_SERIAL, REVIEW_TITLE, REVIEW_CONTENT "
-			+ "FROM REVIEW;";
-	static final private String SQL_SELECTALL_MEMBER = "SELECT REVIEW_NUM, MEMEBER_ID, BUY_SERIAL, REVIEW_TITLE, REVIEW_CONTENT "
+//	static final private String SQL_SELECTALL = "SELECT REVIEW_NUM, MEMBER_ID, BUY_SERIAL, REVIEW_TITLE, REVIEW_CONTENT "
+//			+ "FROM REVIEW "
+//			+ "LIMIT ?,?;";
+	static final private String SQL_SELECTALL_MEMBER = "SELECT REVIEW_NUM, MEMBER_ID, BUY_SERIAL, REVIEW_TITLE, REVIEW_CONTENT "
+			+ "FROM("
+			+ "SELECT ROW_NUMBER() OVER(ORDER BY REVIEW_NUM) AS row_num, "
+			+ "REVIEW_NUM, MEMBER_ID, BUY_SERIAL, REVIEW_TITLE, REVIEW_CONTENT "
 			+ "FROM REVIEW "
-			+ "WHERE MEMBER_ID=?";
+			+ "WHERE MEMBER_ID=?"
+			+ ") AS reviews "
+			+ "WHERE row_num BETWEEN ? AND (?+6);";
 	static final private String SQL_SELECTONE = "SELECT REVIEW_NUM, MEMBER_ID, BUY_SERIAL, REVIEW_TITLE, REVIEW_CONTENT "
-			+ "FROM REVIEW R "
-			+ "WHERE R.REVIEW_NUM=?";
+			+ "FROM REVIEW "
+			+ "WHERE REVIEW_NUM=?";
 	static final private String SQL_INSERT = "INSERT INTO REVIEW(MEMBER_ID, BUY_SERIAL, REVIEW_TITLE, REVIEW_CONTENT) VALUES(?, ?, ?, ?);";
-	static final private String SQL_UPDATE = "UPDATE REVIEW SET REVIEW_TITLE = ?, REVIEW_CONTENT =? WHERE REVIEW_NUM = ?;";
+	static final private String SQL_UPDATE_ALL = "UPDATE REVIEW SET REVIEW_TITLE = ?, REVIEW_CONTENT =? WHERE REVIEW_NUM = ?;";
+	static final private String SQL_UPDATE_TITLE = "UPDATE REVIEW SET REVIEW_TITLE = ? WHERE REVIEW_NUM = ?;";
+	static final private String SQL_UPDATE_CONTENT = "UPDATE REVIEW SET REVIEW_CONTENT =? WHERE REVIEW_NUM = ?;";
 	static final private String SQL_DELETE = "DELETE FROM REVIEW WHERE REVIEW_NUM = ?;";
 	
 	public ArrayList<ReviewVO> selectAll(ReviewVO rVO) {
@@ -29,15 +37,12 @@ public class ReviewDAO {
 		ArrayList<ReviewVO> datas = new ArrayList<ReviewVO>();
 
 		try {
-			if(rVO.getReviewSearch().equals("ALL")) {
-				pstmt = conn.prepareStatement(SQL_SELECTALL);
-				rs = pstmt.executeQuery();
-			}
-			else if(rVO.getReviewSearch().equals("MEMBER")) {
 				pstmt = conn.prepareStatement(SQL_SELECTALL_MEMBER);
 				pstmt.setString(1, rVO.getMemberId());
+				pstmt.setInt(2, rVO.getPagingCnt());
+				pstmt.setInt(3, rVO.getPagingCnt());
 				rs = pstmt.executeQuery();
-			}
+				
 			while (rs.next()) {
 				ReviewVO data = new ReviewVO();
 				data.setReviewNum(rs.getInt("REVEIW_NUM"));
@@ -113,10 +118,22 @@ public class ReviewDAO {
 		conn=JDBCUtil.connect();
 		
 		try {
-			pstmt = conn.prepareStatement(SQL_UPDATE);
-			pstmt.setString(1, rVO.getReviewTitle());
-			pstmt.setString(2, rVO.getReviewContent());
-			pstmt.setInt(3, rVO.getReviewNum());
+			if(rVO.getReviewSearch().equals("ALL")) {
+				pstmt = conn.prepareStatement(SQL_UPDATE_ALL);
+				pstmt.setString(1, rVO.getReviewTitle());
+				pstmt.setString(2, rVO.getReviewContent());
+				pstmt.setInt(3, rVO.getReviewNum());
+			}
+			else if(rVO.getReviewSearch().equals("TITLE")) {
+				pstmt = conn.prepareStatement(SQL_UPDATE_TITLE);
+				pstmt.setString(1, rVO.getReviewTitle());
+				pstmt.setInt(2, rVO.getReviewNum());
+			}
+			else if(rVO.getReviewSearch().equals("CONTENT")) {
+				pstmt = conn.prepareStatement(SQL_UPDATE_CONTENT);
+				pstmt.setString(1, rVO.getReviewContent());
+				pstmt.setInt(2, rVO.getReviewNum());
+			}
 			
 			int rs = pstmt.executeUpdate();
 			

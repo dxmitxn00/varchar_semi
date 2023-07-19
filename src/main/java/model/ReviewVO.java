@@ -9,6 +9,7 @@ public class ReviewVO {
 	
 	// 임시변수
 	private String reviewSearch;
+	private int PagingCnt;
 	
 	public ReviewVO() {
 		this(0, "", 0, "", "");
@@ -20,6 +21,16 @@ public class ReviewVO {
 		this.buySerial = buySerial;
 		this.reviewTitle = reviewTitle;
 		this.reviewContent = reviewContent;
+	}
+	
+	
+
+	public int getPagingCnt() {
+		return PagingCnt;
+	}
+
+	public void setPagingCnt(int pagingCnt) {
+		PagingCnt = pagingCnt;
 	}
 
 	public int getReviewNum() {
