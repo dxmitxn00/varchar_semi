@@ -9,7 +9,7 @@
        border: 1px solid #ebebeb;
        padding-left: 20px;
        font-size: 16px;
-       color: #b2b2b2;
+       color: #1c1c1c;
        border-radius: 4px;
        text-align: center;
        margin: auto;

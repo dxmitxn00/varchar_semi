@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="try" %>
 <!DOCTYPE html>
 <html lang="">
 
 <!-- ● memberID 데이터 필요 -->
-<!-- ● memberPw 데이터 보냄 -->
+<!-- ● memberID, memberPw,
+	   memberName, memberAddress,
+	   memberPhone, memberEmail 데이터 보냄 -->
+
 
 <head>
     <meta charset="UTF-8">
@@ -29,7 +31,7 @@
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <style type="text/css">
-    	.checkout__form > a, .updatePw {
+    	.checkout__form > a, .updateInfo {
     		display: inline-block;
    	 		font-size: 17px;
     		color: #1c1c1c;
@@ -52,7 +54,7 @@
     		border: 1px solid #ebebeb;
     		padding-left: 20px;
     		font-size: 16px;
-    		color: #b2b2b2;
+    		color: #1c1c1c;
     		border-radius: 4px;
     		text-align: center;
     		margin: auto;
@@ -66,24 +68,18 @@
     		margin-bottom: 20px;
     	}
     </style>
-    <script type="text/javascript">
-    	function checkPw() {
- 	  		var nPw = document.getElementById('newPw').value;
-       		var cnPw = document.getElementById('checkNewPw').value;
+   <script type="text/javascript">
+    	function checkPh() {
+ 	  		var ph = document.getElementById('memberPhone').value;
                 		
-       		if(nPw.length < 8){
-   				alert('비밀번호 설정은 8글자 이상부터 가능합니다.');
-                			
-       			return false;
+       		if(ph.length == 11 || ph == ''){
+       			return true;
        		}
-       		else if( nPw != cnPw ){
-                alert("새 비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+   			alert('전화번호는 하이픈(-) 공백없이 11자리 입력해주세요.');
                 			
-                return false;
-            }
-       		return true;
+       		return false;
       	}
-                </script>
+    </script>
 </head>
 
 <body>
@@ -101,15 +97,15 @@
     <!-- Hero Section End -->
 
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="img/pw.jpg">
+    <section class="breadcrumb-section set-bg" data-setbg="img/info.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>비밀번호 변경</h2>
+                        <h2>주문</h2>
                         <div class="breadcrumb__option">
                             <a href="main.jsp">Home</a>
-                            <span>My Page</span>
+                            <span>Order</span>
                         </div>
                     </div>
                 </div>
@@ -120,34 +116,33 @@
 
     <!-- Checkout Section Begin -->
     <section class="checkout spad">
-        <div class="container">
-        	<h6><span class="icon_tag_alt"></span> 비밀번호 8자리 이상 입력하세요.</h6>
-        </div>
             <div class="checkout__form">
-            
-            	<!-- 정보수정 / 비번변경 버튼 -->
-            	<a href="updateInfoPage.do" class="mInfo__btn"> 회원 정보 수정 </a><a href="updatePwPage.do" class="mPw__btn"> 비밀번호 변경 </a>
-                
-                <!-- 새 비밀번호 입력란 폼 -->
-                <form action="updatePw.do" method="post" onsubmit="return checkPw()">
-                	<input type="hidden" name="memberId" value="${ memberId }">
+                <!-- 회원정보 입력란 폼 -->
+                <form action="order.do" method="post" onsubmit="return checkPh();">
                 	<div class="checkout__input">
-                    	<p>새 비밀번호</p>
-                    	<input type="password" id=newPw name=newPw required>
+                    	<p>아이디</p>
+                    	<input type="text" name="memberID" value="아이디${ memberId }" readonly>
+                    </div>
+                	<div class="checkout__input">
+                    	<p>이름</p>
+                    	<input type="text" name="memberName" value="이름${ memberName }" readonly>
                     </div>
                     <div class="checkout__input">
-                        <p>비밀번호 확인</p>
-                        <input type="password" id="checkNewPw" name="checkNewPw" required>
+                        <p>전화번호</p>
+                        <input type="text" id="memberPhone" name="memberPhone" placeholder="전화번호는 하이픈(-) 공백없이 11자리 입력해주세요." value="${ memberPhone }">
                     </div>
-                    	<input class="updatePw" type="submit" value="변경">
+                        <div class="checkout__input">
+                        <p>주소</p>
+                        <try:addressAPI/>
+                    </div>
+                    <input class="updateInfo" type="submit" value="결제하기">
                 </form>
-                
             </div>
     </section>
     <!-- Checkout Section End -->
 
     <!-- Footer Section Begin -->
-    <try:Footer/>
+	<try:Footer/>
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->

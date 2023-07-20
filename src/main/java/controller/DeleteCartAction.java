@@ -1,10 +1,13 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import model.TeaVO;
 
 public class DeleteCartAction implements Action {
 
@@ -14,8 +17,25 @@ public class DeleteCartAction implements Action {
 		
 		ActionForward forward = new ActionForward();
 		
-//		forward.setRedirect(true);
-//		forward.setPath("");
+		int teaNum = Integer.parseInt(request.getParameter("teaNum"));
+		
+		HttpSession session = request.getSession();
+		
+		ArrayList<TeaVO> cart = (ArrayList<TeaVO>)session.getAttribute("cart");
+		
+		int i = 0;
+		for (TeaVO t : cart) {
+			if (t.getTeaNum() == teaNum) {
+				cart.remove(i);
+				break;
+			}
+			i++;
+		}
+		
+		session.setAttribute("cart", cart);
+		
+		forward.setRedirect(true);
+		forward.setPath("cartPage.do");
 		
 		return forward;
 	}
