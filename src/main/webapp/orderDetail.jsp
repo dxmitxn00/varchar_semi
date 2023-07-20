@@ -14,7 +14,8 @@
 <!-- ● 객체배열
 	   	{ memberName(회원이름),
 	   	  memberPhone(회원연락처) },
-	   paymentName(결제수단) 데이터 필요 -->
+	   paymentName(결제수단),
+	   reviewDone(후기작성완료-boolean) 데이터 필요 -->
 <!-- ● buyNum(주문번호),
 	   buySerial(주문시리얼번호),
  	   teaName(상품이름) 데이터 없음 -->
@@ -113,6 +114,13 @@
     <!-- Breadcrumb Section End -->
 
     <!-- Shoping Cart Section Begin -->
+    
+    <!-- 총 가격 구하기 -->
+    <c:set var="sum" value="0" />
+    <c:forEach var="v" items="bdatas">
+    	<c:set var="sum" value="${sum + (bdatas.teaPrice * bdatas.teaCnt)}" />
+    </c:forEach>
+	<%-- <c:set var="reviewDone" value="false"/> --%>
     <section class="shoping-cart spad">
         <div class="container">
             <div class="row">
@@ -120,7 +128,7 @@
                 	<div class="checkout__form">
 	                   	<form action="insertReviews.do?buySerial=${ bdatas.buySerial }" method="post">
 	                   	<input type="hidden" name="buySerial" value="${ bdatas.buySerial }">
-                		<h4>주문번호 : 쏼라쏼라${ buyNum }</h4><br><br><br>
+                		<h4>주문번호 : ${ buyNum }</h4><br><br><br>
                    		<div class="shoping__cart__table">
                 		<h4 id=teaInfo>상품정보</h4>
 	                   		<!-- 상품목록 테이블 -->
@@ -132,13 +140,18 @@
                                         	<img src="" alt="">상품이름
                                     	</td>
 										<td class="shoping__cart__item">
-                							<a href="orderDetail.do?num=${ v.teaNum }">그만${ v.teaName }</a>
+                							<a href="orderDetail.do?num=${ v.teaNum }">${ v.teaName }</a>
                                     	</td>
 										<td class="shoping__cart__item">
-                							몇${ v.buyCnt } 개
+                							${ v.buyCnt } 개
                                     	</td>
                                     	<td class="shoping__cart__price">
-                							<input type=submit value="후기작성">
+                                    		<c:if test="${ reviewDone == true }">
+                								<input type=submit value="후기작성">
+                							</c:if>
+                							<c:if test="${ reviewDone == false }">
+                								<input type=submit  value="후기작성" style="background-color:transparent;  border:0px transparent solid;">
+                							</c:if>
                                     	</td>
                 					</tr>
                 					</c:forEach>
@@ -154,7 +167,7 @@
                                         	<img src="" alt="">받는사람
                                     	</td>
 										<td class="shoping__cart__item">
-                							집좀 ${ memberName }
+                							${ memberName }
                                     	</td>
                 					</tr>
 									<tr>
@@ -162,7 +175,7 @@
                                         	<img src="" alt="">연락처
                                     	</td>
 										<td class="shoping__cart__item">
-                							보내 ${ memberPhone }
+                							${ memberPhone }
                                     	</td>
                 					</tr>
 									<tr>
@@ -170,7 +183,7 @@
                                         	<img src="" alt="">받는주소
                                     	</td>
 										<td class="shoping__cart__item">
-                							줘요 ${ memberAddress }
+                							${ memberAddress }
                                     	</td>
                 					</tr>
                 				</tbody>
@@ -185,7 +198,7 @@
                                         	<img src="" alt="">결제방법
                                     	</td>
 										<td class="shoping__cart__item">
-                							머리 ${ paymentName }
+                							${ paymentName }
                                     	</td>
                 					</tr>
 									<tr>
@@ -193,7 +206,7 @@
                                         	<img src="" alt="">결제금액
                                     	</td>
 										<td class="shoping__cart__item">
-                							터져 ${ totalPrice }
+                							${ sum }원
                                     	</td>
                 					</tr>
                 				</tbody>

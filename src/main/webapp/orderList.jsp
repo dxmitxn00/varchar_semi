@@ -71,56 +71,7 @@
     <!-- Header Section End -->
 
     <!-- Hero Section Begin -->
-    <section class="hero hero-normal">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="hero__categories">
-                        <div class="hero__categories__all">
-                            <i class="fa fa-bars"></i>
-                            <span>All departments</span>
-                        </div>
-                        <ul>
-                            <li><a href="#">Fresh Meat</a></li>
-                            <li><a href="#">Vegetables</a></li>
-                            <li><a href="#">Fruit & Nut Gifts</a></li>
-                            <li><a href="#">Fresh Berries</a></li>
-                            <li><a href="#">Ocean Foods</a></li>
-                            <li><a href="#">Butter & Eggs</a></li>
-                            <li><a href="#">Fastfood</a></li>
-                            <li><a href="#">Fresh Onion</a></li>
-                            <li><a href="#">Papayaya & Crisps</a></li>
-                            <li><a href="#">Oatmeal</a></li>
-                            <li><a href="#">Fresh Bananas</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-9">
-                    <div class="hero__search">
-                        <div class="hero__search__form">
-                            <form action="#">
-                                <div class="hero__search__categories">
-                                    All Categories
-                                    <span class="arrow_carrot-down"></span>
-                                </div>
-                                <input type="text" placeholder="What do yo u need?">
-                                <button type="submit" class="site-btn">SEARCH</button>
-                            </form>
-                        </div>
-                        <div class="hero__search__phone">
-                            <div class="hero__search__phone__icon">
-                                <i class="fa fa-phone"></i>
-                            </div>
-                            <div class="hero__search__phone__text">
-                                <h5>+65 11.188.888</h5>
-                                <span>support 24/7 time</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <try:Hero/>
     <!-- Hero Section End -->
 
     <!-- Breadcrumb Section Begin -->
@@ -142,6 +93,13 @@
     <!-- Breadcrumb Section End -->
 
     <!-- Shoping Cart Section Begin -->
+    
+    <!-- 총 가격 구하기 -->
+    <c:set var="sum" value="0" />
+    <c:forEach var="v" items="bdatas">
+    	<c:set var="sum" value="${sum + (bdatas.teaPrice * bdatas.teaCnt)}" />
+    </c:forEach>
+    
     <section class="shoping-cart spad">
         <div class="container">
             <div class="row">
@@ -161,8 +119,8 @@
                                 <tr>
                                 <c:forEach var="v" items="${ bdatas }">
 									<tr>
-										<td class="orderInfo"><a href="orderDetail.do?num=${ v.buyNum }">주문번호${ v.buyNum }</a></td>
-										<td class="orderInfo">가격</td>
+										<td class="orderInfo"><a href="orderDetail.do?num=${ v.buyNum }">${ v.buyNum }</a></td>
+										<td class="orderInfo">${ sum }원</td>
 										<td>
 											<input type="submit" value="다시 담기">
 										</td>
