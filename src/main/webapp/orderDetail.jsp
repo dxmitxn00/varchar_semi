@@ -15,7 +15,8 @@
 	   memberPhone(회원연락처),
 	   memberAddress(회원주소),
 	   paymentName(결제수단) 데이터 필요 -->
-<!-- ● 보낼 데이터 없음 -->
+<!-- ● buyNum(주문번호),
+ 	   teaName(상품이름) 데이터 없음 -->
 
 <head>
     <meta charset="UTF-8">
@@ -217,7 +218,7 @@
                                         	<img src="" alt="">받는사람
                                     	</td>
 										<td class="shoping__cart__item">
-                							할래 ${ memberName }
+                							집좀 ${ memberName }
                                     	</td>
                 					</tr>
 									<tr>
@@ -225,7 +226,7 @@
                                         	<img src="" alt="">연락처
                                     	</td>
 										<td class="shoping__cart__item">
-                							집좀 ${ memberPhone }
+                							보내 ${ memberPhone }
                                     	</td>
                 					</tr>
 									<tr>
@@ -233,7 +234,7 @@
                                         	<img src="" alt="">받는주소
                                     	</td>
 										<td class="shoping__cart__item">
-                							보내줘 ${ memberAddress }
+                							줘요 ${ memberAddress }
                                     	</td>
                 					</tr>
                 				</tbody>

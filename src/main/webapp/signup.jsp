@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="try" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -142,113 +143,36 @@ function closeDaumPostcode() {
 </head>
 
 <body>
+<script type="text/javascript">
+function test() { // 회원가입 버튼에서 실행될 함수 (버튼을 submit으로 설정 X)
+    var p1 = document.getElementById('pw').value; 
+    // MemberVO의 패스워드 멤버변수 memberPw와 동일한 name을 갖춰서 보내야할 인풋값
+    var p2 = document.getElementById('pw2').value; 
+    // 단순 2차 비번 확인용
+    if( p1 != p2 ) {
+      alert("비밀번호가 일치 하지 않아서 회원가입을 완료할수 없습니다.");
+    } else{
+      alert("비밀번호가 일치합니다, 회원가입을 완료합니다!");
+      document.getElementById('signup').submit(); // 컨트롤러에게 form에 id값을 설정하여 전달
+    }
+}
 
+function test02(){
+	
+	
+}
+</script>
 	<!-- Page Preloder -->
 	<div id="preloder">
 		<div class="loader"></div>
 	</div>
 
 	<!-- Humberger Begin -->
-	<div class="humberger__menu__overlay"></div>
-	<div class="humberger__menu__wrapper">
-		<div class="humberger__menu__logo">
-			<a href="#"><img src="img/logo.png" alt=""></a>
-		</div>
-		<div class="humberger__menu__cart">
-			<ul>
-				<li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-				<li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-			</ul>
-			<div class="header__cart__price">
-				item: <span>$150.00</span>
-			</div>
-		</div>
-		<div class="humberger__menu__widget">
-			<div class="header__top__right__language">
-				<img src="img/language.png" alt="">
-				<div>English</div>
-				<span class="arrow_carrot-down"></span>
-				<ul>
-					<li><a href="#">Spanis</a></li>
-					<li><a href="#">English</a></li>
-				</ul>
-			</div>
-			<div class="header__top__right__auth">
-				<a href="#"><i class="fa fa-user"></i> Login</a>
-			</div>
-		</div>
-		<nav class="humberger__menu__nav mobile-menu">
-			<ul>
-				<li class="active"><a href="./index.html">Home</a></li>
-				<li><a href="./shop-grid.html">Shop</a></li>
-				<li><a href="#">Pages</a>
-					<ul class="header__menu__dropdown">
-						<li><a href="./shop-details.html">Shop Details</a></li>
-						<li><a href="./shoping-cart.html">Shoping Cart</a></li>
-						<li><a href="./checkout.html">Check Out</a></li>
-						<li><a href="./blog-details.html">Blog Details</a></li>
-					</ul></li>
-				<li><a href="./blog.html">Blog</a></li>
-				<li><a href="./contact.html">Contact</a></li>
-			</ul>
-		</nav>
-		<div id="mobile-menu-wrap"></div>
-		<div class="header__top__right__social">
-			<a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
-				class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-linkedin"></i></a>
-			<a href="#"><i class="fa fa-pinterest-p"></i></a>
-		</div>
-		<div class="humberger__menu__contact">
-			<ul>
-				<li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-				<li>Free Shipping for all Order of $99</li>
-			</ul>
-		</div>
-	</div>
+	<try:Humberger/>
 	<!-- Humberger End -->
 
 	<!-- Header Section Begin -->
-	<header class="header">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3">
-					<div class="header__logo">
-						<a href="./index.jsp"><img src="img/varLog3.png" alt=""></a>
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<nav class="header__menu">
-						<ul>
-							<li class="active"><a href="./index.jsp">Home</a></li>
-							<li><a href="#">상품</a>
-								<ul class="header__menu__dropdown">
-									<li><a id="all" href="./shop-details.html">전체</a></li>
-									<li><a id="greentea" href="./shoping-cart.html">녹차</a></li>
-									<li><a id="redtea" href="./checkout.html">홍차</a></li>
-									<li><a id="louis" href="./checkout.html">루이보스</a></li>
-									<li><a id="bluetea" href="./checkout.html">청차</a></li>
-									<li><a id="herb" href="./checkout.html">허브차</a></li>
-								</ul></li>
-							<li><a href="./blog.html">후기</a></li>
-							<li><a href="./shop-grid.html">마이페이지</a></li>
-							<li><a href="./contact.html">오시는 길</a></li>
-						</ul>
-					</nav>
-				</div>
-				<div class="col-lg-3">
-					<div class="header__cart">
-						<ul>
-							<li><a href="./login.jsp"><img src="img/login.jpg"
-									alt="로그인" width="24" height="24" border="1"></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="humberger__open">
-				<i class="fa fa-bars"></i>
-			</div>
-		</div>
-	</header>
+	<try:Head/>
 	<!-- Header Section End -->
 
 	<!-- Hero Section Begin -->
@@ -277,23 +201,18 @@ function closeDaumPostcode() {
 	<section class="checkout spad">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-12">
-					<h6>
-						<span class="icon_tag_alt"></span> Have a coupon? <a href="#">Click
-							here</a> to enter your code
-					</h6>
-				</div>
 			</div>
 			<div class="checkout__form">
 				<h4>회원가입</h4>
-				<form action="#">
+				<!-- Ctrl한테 보내줘야 할 Form시작 -->
+				<form action="signup.do" method="post" id="signup">
 					<div class="row">
 						<div class="col-lg-4 col-md-6">
 							<div class="signup__image">
 								<img src="img/signup/signupPage.jpg" alt="">
 							</div>
 						</div>
-					
+						
 						<div class="col-lg-8 col-md-6">
 							<div class="row">
 								<div class="col-lg-6">
@@ -301,7 +220,7 @@ function closeDaumPostcode() {
 										<p>
 											아이디<span>*</span>
 										</p>
-										<input type="text" placeholder="아이디를 입력하세요" required>
+										<input type="text" name="memberId" placeholder="아이디를 입력하세요" required>
 									</div>
 								</div>
 								<div class="col-lg-6">
@@ -309,7 +228,15 @@ function closeDaumPostcode() {
 										<p>
 											비밀번호<span>*</span>
 										</p>
-										<input type="password" placeholder="비밀번호를 입력하세요" required>
+										<input id="pw" type="password" name="memberPw" placeholder="비밀번호를 입력하세요 (최대 8자까지)" required>
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="checkout__input">
+										<p>
+											비밀번호 확인<span>*</span>
+										</p>
+										<input id="pw2" type="password"  placeholder="한번 더 입력하세요." required>
 									</div>
 								</div>
 							</div>
@@ -317,124 +244,48 @@ function closeDaumPostcode() {
 								<p>
 									이름<span>*</span>
 								</p>
-								<input type="text" placeholder="이름을 입력하세요" required>
+								<input type="text" name="memberName" placeholder="이름을 입력하세요" required>
 							</div>
 							<div class="checkout__input">
 								<p>
 									주소<span>*</span>
 								</p>
-								<input id="roadAddress" type="text" placeholder="Street Address" >
-								<input id="postcode" type="text" placeholder="Street Address" >
-								<input id="jibunAddress" type="text" placeholder="Street Address" >				
+								<input id="roadAddress" type="text" placeholder="도로명" >
+								<input id="postcode" type="text" placeholder="우편번호" >
+								<input id="jibunAddress" type="text" placeholder="지번" >				
 								<span id="guide" style="color: #999; display: none"></span> 
-								<input type="button" onclick="execDaumPostcode()" value="주소 찾기">
+								<input type="button" name="memberAddress" onclick="execDaumPostcode()" value="주소 찾기">
 							</div>
 							<div class="row">
 								<div class="col-lg-6">
 									<div class="checkout__input">
 										<p>
-											연락처<span>*</span>
+											연락처
 										</p>
-										<input type="text" placeholder="-(하이픈)을 빼고 입력하세요" required>
+										<input type="text" name="memberPhone" placeholder="-(하이픈)을 빼고 입력하세요" required>
 									</div>
 								</div>
 								<div class="col-lg-6">
 									<div class="checkout__input">
 										<p>
-											Email<span>*</span>
+											Email
 										</p>
-										<input type="text" placeholder="@ 포함 정확하게 입력하세요" required>
+										<input type="text" name="memberEmail" placeholder="@ 포함 정확하게 입력하세요" required>
 									</div>
 								</div>
 							</div>
-							<input type="submit" value="회원가입">
+							<button type="button" value="회원가입" class="site-btn" onclick="test()">Sign Up</button>
 					</div>
 					</div>
 				</form>
+				<!-- Ctrl한테 보내줘야 할 Form끝 -->
 			</div>
 		</div>
 	</section>
 	<!-- Checkout Section End -->
 
 	<!-- Footer Section Begin -->
-	<footer class="footer spad">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="footer__about">
-						<div class="footer__about__logo">
-							<a href="./index.html"><img src="img/logo.png" alt=""></a>
-						</div>
-						<ul>
-							<li>Address: 60-49 Road 11378 New York</li>
-							<li>Phone: +65 11.188.888</li>
-							<li>Email: hello@colorlib.com</li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
-					<div class="footer__widget">
-						<h6>Useful Links</h6>
-						<ul>
-							<li><a href="#">About Us</a></li>
-							<li><a href="#">About Our Shop</a></li>
-							<li><a href="#">Secure Shopping</a></li>
-							<li><a href="#">Delivery infomation</a></li>
-							<li><a href="#">Privacy Policy</a></li>
-							<li><a href="#">Our Sitemap</a></li>
-						</ul>
-						<ul>
-							<li><a href="#">Who We Are</a></li>
-							<li><a href="#">Our Services</a></li>
-							<li><a href="#">Projects</a></li>
-							<li><a href="#">Contact</a></li>
-							<li><a href="#">Innovation</a></li>
-							<li><a href="#">Testimonials</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-12">
-					<div class="footer__widget">
-						<h6>Join Our Newsletter Now</h6>
-						<p>Get E-mail updates about our latest shop and special
-							offers.</p>
-						<form action="#">
-							<input type="text" placeholder="Enter your mail">
-							<button type="submit" class="site-btn">Subscribe</button>
-						</form>
-						<div class="footer__widget__social">
-							<a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
-								class="fa fa-instagram"></i></a> <a href="#"><i
-								class="fa fa-twitter"></i></a> <a href="#"><i
-								class="fa fa-pinterest"></i></a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="footer__copyright">
-						<div class="footer__copyright__text">
-							<p>
-								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-								Copyright &copy;
-								<script>
-									document.write(new Date().getFullYear());
-								</script>
-								All rights reserved | This template is made with <i
-									class="fa fa-heart" aria-hidden="true"></i> by <a
-									href="https://colorlib.com" target="_blank">Colorlib</a>
-								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-							</p>
-						</div>
-						<div class="footer__copyright__payment">
-							<img src="img/payment-item.png" alt="">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
+	<try:Footer/>
 	<!-- Footer Section End -->
 
 	<!-- Js Plugins -->

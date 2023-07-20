@@ -2,26 +2,27 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+<!-- 최신본임 -->
 <header class="header">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="./index.jsp"><img src="img/varLog3.png" alt=""></a>
+                        <a href="./main.jsp"><!-- main.do --><img src="img/varLog3.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="./index.jsp">Home</a></li>
+                            <li class="active"><a href="./main.jsp">Home</a></li>
                             <li><a href="#">상품</a>
                                 <ul class="header__menu__dropdown">
-                                    <li><a id="all" href="./shop-details.html">전체</a></li>
-                                    <li><a id="greentea" href="./shoping-cart.html">녹차</a></li>
-                                    <li><a id="redtea" href="./checkout.html" >홍차</a></li>
-                                    <li><a id="louis" href="./checkout.html" >루이보스</a></li>
-                                    <li><a id="bluetea" href="./checkout.html" >우롱차</a></li>
-                                    <li><a id="herb" href="./checkout.html" >허브차</a></li>
+                                    <li><a id="all" href="./shoplist.jsp">전체</a></li>
+                                    <li><a id="greentea" href="./shoplist.jsp">녹차</a></li>
+                                    <li><a id="redtea" href="./shoplist.jsp" >홍차</a></li>
+                                    <li><a id="louis" href="./shoplist.jsp" >루이보스</a></li>
+                                    <li><a id="bluetea" href="./shoplist.jsp" >우롱차</a></li>
+                                    <li><a id="herb" href="./shoplist.jsp" >허브차</a></li>
                                     <!-- href에 tea.do는 똑같이 하되, cate를 다 다르게 해준다! -->
                                 </ul>
                             </li>
@@ -34,8 +35,15 @@
                 <div class="col-lg-3">
                     <div class="header__cart">
                         <ul>
-                        	<li><a href="./signup.jsp"><img src=img/signup.png alt="회원가입" width="24" height="24" border="1"></a></li>
-                            <li><a href="./login.jsp"><img src="img/login.jpg" alt="로그인" width="24" height="24" border="1"></a></li>
+                        <c:if test="${empty memberId}">
+                        	<li><a href="./signup.jsp"><!-- signup.do --><img src=img/signup.png alt="회원가입" width="24" height="24" border="1"></a></li>
+                            <li><a href="./login.jsp"><!-- login.do --><img src="img/login.jpg" alt="로그인" width="24" height="24" border="1"></a></li>
+                        </c:if> 
+                        <c:if test="${not empty memberId}">
+                            <li><a href="#"><!-- favorPage.do --><i class="fa fa-heart"></i> <span>1</span></a></li>
+                            <li><a href="#"><!-- cartPage.do --><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                            <li><a href="./main.jsp"><!-- logout.do --><img src="img/logout.png" alt="로그아웃" width="24" height="24" border="1"></a></li>
+                        </c:if>  
                         </ul>
                     </div>
                 </div>
