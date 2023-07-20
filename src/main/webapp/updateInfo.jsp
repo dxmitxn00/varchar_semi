@@ -125,8 +125,7 @@
                 <a href="updateInfoPage.do" class="mInfo__btn"> 회원 정보 수정 </a><a href="updatePwPage.do" class="mPw__btn"> 비밀번호 변경 </a>
                 
                 <!-- 회원정보 입력란 폼 -->
-                <form action="main.jsp" method="post" onsubmit="return checkPh();">
-                		<!-- updateInfo.do -->
+                <form action="updateInfo.do" method="post" onsubmit="return checkPh();">
                 	<div class="checkout__input">
                     	<p>아이디</p>
                     	<input type="text" name="memberID" value="${ memberId }" readonly>

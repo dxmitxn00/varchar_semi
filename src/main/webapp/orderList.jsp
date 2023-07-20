@@ -7,6 +7,7 @@
 
 <!-- ● bdatas 객체배열
 		{ buyNum(주문번호),
+		  buySerial(주문시리얼번호),
 	   	  teaPice(상품가격) } 데이터 필요 -->
 <!-- ● buyNum(주문번호) 데이터 보냄 -->
 
@@ -16,7 +17,7 @@
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ogani | Template</title>
+    <title>주문내역페이지</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
@@ -36,13 +37,15 @@
     		text-align: center
     	}
     	.shoping__cart__table table tbody td input{
-    		padding: 15px 30px 11px;
-    		font-size: 12px;
-    		letter-spacing: 4px;
-    		background: #6f6f6f;
+    		display: inline-block;
+    		font-size: 17px;
     		color: #ffffff;
-    		border: none;
-    		font-size: 1rem;
+    		text-transform: uppercase;
+    		letter-spacing: 1px;
+    		border: 1px solid #b2b2b2;
+    		padding: 14px 20px 12px;
+    		border-radius: 25px;
+    		background-color: #23512e;
     	}
     	.shoping__cart__table table tbody .orderInfo{
     		font-size: 16px;
@@ -156,7 +159,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                <%-- <c:forEach var="v" items="${ bdatas }"> --%>
+                                <c:forEach var="v" items="${ bdatas }">
 									<tr>
 										<td class="orderInfo"><a href="orderDetail.do?num=${ v.buyNum }">주문번호${ v.buyNum }</a></td>
 										<td class="orderInfo">가격</td>
@@ -164,7 +167,7 @@
 											<input type="submit" value="다시 담기">
 										</td>
 									</tr>
-								<%-- </c:forEach> --%>                                 
+								</c:forEach>                                
                             </tbody>
                         </table>
                         </form>
