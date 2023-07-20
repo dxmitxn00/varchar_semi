@@ -11,7 +11,8 @@ public class TeaVO {
 
 	// 임시변수
 	private String teaSearchWord;
-	private String imageUrl; 
+	private String imageUrl;
+	private int pagingCnt;
 	
 	public TeaVO() {
 		this(0, "", 0, 0, "", "");
@@ -24,6 +25,16 @@ public class TeaVO {
 		this.teaCnt = teaCnt;
 		this.teaCategory = teaCategory;
 		this.teaContent = teaContent;
+	}
+	
+	
+
+	public int getPagingCnt() {
+		return pagingCnt;
+	}
+
+	public void setPagingCnt(int pagingCnt) {
+		this.pagingCnt = pagingCnt;
 	}
 
 	public int getTeaNum() {
