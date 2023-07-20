@@ -12,11 +12,11 @@
                             <span>상품</span>
                         </div>
                         <ul>
-                            <li><a href="#">녹차</a></li>
-                            <li><a href="#">홍차</a></li>
-                            <li><a href="#">루이보스</a></li>
-                            <li><a href="#">우롱차</a></li>
-                            <li><a href="#">허브차</a></li>
+                            <li><a href="teaListPage.do">녹차</a></li>
+                            <li><a href="teaListPage.do">홍차</a></li>
+                            <li><a href="teaListPage.do">루이보스</a></li>
+                            <li><a href="teaListPage.do">우롱차</a></li>
+                            <li><a href="teaListPage.do">허브차</a></li>
                         </ul>
                     </div>
                 </div>

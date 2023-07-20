@@ -144,11 +144,19 @@
                             <span>상품</span>
                         </div>
                         <ul>
+<<<<<<< HEAD
                             <li><a href="./shoplist.jsp">녹차</a></li>
                             <li><a href="./shoplist.jsp">홍차</a></li>
                             <li><a href="./shoplist.jsp">루이보스</a></li>
                             <li><a href="./shoplist.jsp">우롱차</a></li>
                             <li><a href="./shoplist.jsp">허브차</a></li>
+=======
+                            <li><a href="teaListPage.do">녹차</a></li>
+                            <li><a href="teaListPage.do">홍차</a></li>
+                            <li><a href="teaListPage.do">루이보스</a></li>
+                            <li><a href="teaListPage.do">우롱차</a></li>
+                            <li><a href="teaListPage.do">허브차</a></li>
+>>>>>>> cb6aef5e86dad40bf273c51f7dac1b4bcd412b57
                         </ul>
                     </div>
                 </div>
@@ -156,7 +164,11 @@
                     <div class="hero__search">
                         <div class="hero__search__form">
                         <c:if test="${empty memberId}">
+<<<<<<< HEAD
                          <strong><a href="./login.jsp">로그인</a></strong>후 이용하세욤 ㅎㅎ
+=======
+                         <strong><a href="login.do">로그인</a></strong>후 이용하세욤 ㅎㅎ
+>>>>>>> cb6aef5e86dad40bf273c51f7dac1b4bcd412b57
                          </c:if>
                          <c:if test="${not empty memberId}">
                          <strong>${memberId}님 환영합니다!</strong>
@@ -178,19 +190,31 @@
                         		<img alt="default01" src="https://images6.alphacoders.com/329/329631.jpg"> <br>
                         		<h4>Var茶는 차를 찾는 여러분께 최상의 서비스를 제공합니다.</h4>
                             <p>수십년 경력의 차 전문가와 함께 안정성과 전문성을 제공합니다.</p>
+<<<<<<< HEAD
                             <a href="./shoplist.jsp" class="primary-btn">SHOP NOW</a>
+=======
+                            <a href="teaListPage.do" class="primary-btn">SHOP NOW</a>
+>>>>>>> cb6aef5e86dad40bf273c51f7dac1b4bcd412b57
                         		</div>
                         	<div class="item">
                         		<img alt="default02" src="https://images7.alphacoders.com/309/309035.jpg"> <br>
                         		<h4>Var茶는 빠른 배송으로 여러분께 보다 더 빨리 다가갑니다.</h4>
                             <p>재고를 상시 확인하여 배송에 차질이 없는 관리 시스템을 사용합니다.</p>
+<<<<<<< HEAD
                             <a href="./shoplist.jsp" class="primary-btn">SHOP NOW</a>
+=======
+                            <a href="teaListPage.do" class="primary-btn">SHOP NOW</a>
+>>>>>>> cb6aef5e86dad40bf273c51f7dac1b4bcd412b57
                         		</div>
                         	<div class="item">
                         		<img alt="default03" src="https://images4.alphacoders.com/218/218068.jpg"> <br>
                         		<h4>저희 페이지에 방문하신 것은 큰 행운입니다.</h4>
                             <p>Var茶와 함께 즐거운 차 여행을 떠나볼까요?</p>
+<<<<<<< HEAD
                             <a href="./shoplist.jsp" class="primary-btn">SHOP NOW</a>
+=======
+                            <a href="teaListPage.do" class="primary-btn">SHOP NOW</a>
+>>>>>>> cb6aef5e86dad40bf273c51f7dac1b4bcd412b57
                         		</div>
                         	</div>
                             
@@ -208,27 +232,47 @@
                 <div class="categories__slider owl-carousel">
                     <div class="col-lg-3">
                         <div class="categories__item set-bg" data-setbg="img/categories/greentea.jpg">
+<<<<<<< HEAD
                             <h5><a href="./shoplist.jsp">녹 차</a></h5>
+=======
+                            <h5><a href="teaListPage.do">녹 차</a></h5>
+>>>>>>> cb6aef5e86dad40bf273c51f7dac1b4bcd412b57
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="categories__item set-bg" data-setbg="img/categories/redtea.jpg">
+<<<<<<< HEAD
                             <h5><a href="./shoplist.jsp">홍 차</a></h5>
+=======
+                            <h5><a href="teaListPage.do">홍 차</a></h5>
+>>>>>>> cb6aef5e86dad40bf273c51f7dac1b4bcd412b57
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="categories__item set-bg" data-setbg="img/categories/louisbos.jpg">
+<<<<<<< HEAD
                             <h5><a href="./shoplist.jsp">루 이 보 스</a></h5>
+=======
+                            <h5><a href="teaListPage.do">루 이 보 스</a></h5>
+>>>>>>> cb6aef5e86dad40bf273c51f7dac1b4bcd412b57
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="categories__item set-bg" data-setbg="img/categories/urong.jpg">
+<<<<<<< HEAD
                             <h5><a href="./shoplist.jsp">우 롱 차</a></h5>
+=======
+                            <h5><a href="teaListPage.do">우 롱 차</a></h5>
+>>>>>>> cb6aef5e86dad40bf273c51f7dac1b4bcd412b57
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="categories__item set-bg" data-setbg="img/categories/herb.jpg">
+<<<<<<< HEAD
                             <h5><a href="./shoplist.jsp">허 브 차</a></h5>
+=======
+                            <h5><a href="teaListPage.do">허 브 차</a></h5>
+>>>>>>> cb6aef5e86dad40bf273c51f7dac1b4bcd412b57
                         </div>
                     </div>
                 </div>
@@ -261,9 +305,15 @@
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-1.jpg">
                             <ul class="featured__item__pic__hover">
+<<<<<<< HEAD
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <!-- <li><a href="#"><i class="fa fa-retweet"></i></a></li> -->
                                 <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+=======
+                                <li><a href="insertFavor.do"><i class="fa fa-heart"></i></a></li>
+                                <!-- <li><a href="#"><i class="fa fa-retweet"></i></a></li> -->
+                                <li><a href="cartPage.do"><i class="fa fa-shopping-cart"></i></a></li>
+>>>>>>> cb6aef5e86dad40bf273c51f7dac1b4bcd412b57
                             </ul>
                         </div>
                         <div class="featured__item__text">
@@ -276,9 +326,15 @@
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-2.jpg">
                             <ul class="featured__item__pic__hover">
+<<<<<<< HEAD
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <!-- <li><a href="#"><i class="fa fa-retweet"></i></a></li> -->
                                 <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+=======
+                                <li><a href="insertFavor.do"><i class="fa fa-heart"></i></a></li>
+                                <!-- <li><a href="#"><i class="fa fa-retweet"></i></a></li> -->
+                                <li><a href="cartPage.do"><i class="fa fa-shopping-cart"></i></a></li>
+>>>>>>> cb6aef5e86dad40bf273c51f7dac1b4bcd412b57
                             </ul>
                         </div>
                         <div class="featured__item__text">
@@ -291,9 +347,15 @@
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-3.jpg">
                             <ul class="featured__item__pic__hover">
+<<<<<<< HEAD
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <!-- <li><a href="#"><i class="fa fa-retweet"></i></a></li> -->
                                 <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+=======
+                                <li><a href="insertFavor.do"><i class="fa fa-heart"></i></a></li>
+                                <!-- <li><a href="#"><i class="fa fa-retweet"></i></a></li> -->
+                                <li><a href="cartPage.do"><i class="fa fa-shopping-cart"></i></a></li>
+>>>>>>> cb6aef5e86dad40bf273c51f7dac1b4bcd412b57
                             </ul>
                         </div>
                         <div class="featured__item__text">
@@ -306,9 +368,15 @@
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-4.jpg">
                             <ul class="featured__item__pic__hover">
+<<<<<<< HEAD
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <!-- <li><a href="#"><i class="fa fa-retweet"></i></a></li> -->
                                 <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+=======
+                                <li><a href="insertFavor.do"><i class="fa fa-heart"></i></a></li>
+                                <!-- <li><a href="#"><i class="fa fa-retweet"></i></a></li> -->
+                                <li><a href="cartPage.do"><i class="fa fa-shopping-cart"></i></a></li>
+>>>>>>> cb6aef5e86dad40bf273c51f7dac1b4bcd412b57
                             </ul>
                         </div>
                         <div class="featured__item__text">
@@ -321,9 +389,15 @@
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-5.jpg">
                             <ul class="featured__item__pic__hover">
+<<<<<<< HEAD
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <!-- <li><a href="#"><i class="fa fa-retweet"></i></a></li> -->
                                 <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+=======
+                                <li><a href="insertFavor.do"><i class="fa fa-heart"></i></a></li>
+                                <!-- <li><a href="#"><i class="fa fa-retweet"></i></a></li> -->
+                                <li><a href="cartPage.do"><i class="fa fa-shopping-cart"></i></a></li>
+>>>>>>> cb6aef5e86dad40bf273c51f7dac1b4bcd412b57
                             </ul>
                         </div>
                         <div class="featured__item__text">
@@ -336,9 +410,15 @@
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-6.jpg">
                             <ul class="featured__item__pic__hover">
+<<<<<<< HEAD
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <!-- <li><a href="#"><i class="fa fa-retweet"></i></a></li> -->
                                 <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+=======
+                                <li><a href="insertFavor.do"><i class="fa fa-heart"></i></a></li>
+                                <!-- <li><a href="#"><i class="fa fa-retweet"></i></a></li> -->
+                                <li><a href="cartPage.do"><i class="fa fa-shopping-cart"></i></a></li>
+>>>>>>> cb6aef5e86dad40bf273c51f7dac1b4bcd412b57
                             </ul>
                         </div>
                         <div class="featured__item__text">
@@ -351,9 +431,15 @@
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-7.jpg">
                             <ul class="featured__item__pic__hover">
+<<<<<<< HEAD
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <!-- <li><a href="#"><i class="fa fa-retweet"></i></a></li> -->
                                 <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+=======
+                                <li><a href="insertFavor.do"><i class="fa fa-heart"></i></a></li>
+                                <!-- <li><a href="#"><i class="fa fa-retweet"></i></a></li> -->
+                                <li><a href="cartPage.do"><i class="fa fa-shopping-cart"></i></a></li>
+>>>>>>> cb6aef5e86dad40bf273c51f7dac1b4bcd412b57
                             </ul>
                         </div>
                         <div class="featured__item__text">
@@ -366,9 +452,15 @@
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-8.jpg">
                             <ul class="featured__item__pic__hover">
+<<<<<<< HEAD
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <!-- <li><a href="#"><i class="fa fa-retweet"></i></a></li> -->
                                 <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+=======
+                                <li><a href="insertFavor.do"><i class="fa fa-heart"></i></a></li>
+                                <!-- <li><a href="#"><i class="fa fa-retweet"></i></a></li> -->
+                                <li><a href="cartPage.do"><i class="fa fa-shopping-cart"></i></a></li>
+>>>>>>> cb6aef5e86dad40bf273c51f7dac1b4bcd412b57
                             </ul>
                         </div>
                         <div class="featured__item__text">
