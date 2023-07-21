@@ -137,7 +137,7 @@
                     </div>
                     <div class="checkout__input">
                         <p>비밀번호 확인</p>
-                        <input type="password" id="checkNewPw" name="checkNewPw" required>
+                        <input type="password" id="checkNewPw" name="checkNewPw" srequired>
                     </div>
                     	<input class="updatePw" type="submit" value="변경">
                 </form>

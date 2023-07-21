@@ -16,7 +16,7 @@
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ogani | Template</title>
+    <title>주문</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
@@ -118,7 +118,7 @@
     <section class="checkout spad">
             <div class="checkout__form">
                 <!-- 회원정보 입력란 폼 -->
-                <form action="order.do" method="post" onsubmit="return checkPh();">
+                <form action="buy.do" method="post" onsubmit="return checkPh();">
                 	<div class="checkout__input">
                     	<p>아이디</p>
                     	<input type="text" name="memberID" value="아이디${ memberId }" readonly>

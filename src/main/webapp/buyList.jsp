@@ -53,6 +53,16 @@
     		list-style: none;
     		line-height: 36px;
     	}
+    	.shoping__cart__table h3 {
+    		font-size: 25px;
+    		color: #1c1c1c;
+    		list-style: none;
+    		line-height: 36px;
+    		display: block;
+    		text-align: center;
+    		margin: 100px;
+    		padding-bottom: 200px;
+    	}
     </style>
 </head>
 
@@ -105,35 +115,39 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="shoping__cart__table">
-                    <form action=cart.do method="post">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th class="shoping__product">주문번호</th>
-                                    <th>총 가격</th>
-                                    <th>다시 담기</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                <c:forEach var="v" items="${ bdatas }">
-									<tr>
-										<td class="orderInfo"><a href="orderDetail.do?num=${ v.buyNum }">${ v.buyNum }</a></td>
-										<td class="orderInfo">${ sum }원</td>
-										<td>
-											<input type="submit" value="다시 담기">
-										</td>
-									</tr>
-								</c:forEach>                                
-                            </tbody>
-                        </table>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                    <form action=InsertCart.do method="post">
+                        	<table>
+                    	<c:if test="${ empty bdatas }">
+                     		<h3>💚주문한 상품이 없어용💚</h3>
+                       	</c:if>
+                        <c:if test="${ not empty bdatas }">
+                            	<thead>
+                                	<tr>
+                                    	<th class="shoping__product">주문번호</th>
+                                    	<th>총 가격</th>
+                                    	<th>다시 담기</th>
+                                    	<th></th>
+                                	</tr>
+                            	</thead>
+                            	<tbody>
+                                	<c:forEach var="v" items="${ bdatas }">
+										<tr>
+											<td class="orderInfo"><a href="buyDetailPage.do">${ v.buyNum }</a></td>
+											<td class="orderInfo">${ sum }원</td>
+											<td>
+												<input type="submit" value="다시 담기">
+											</td>
+										</tr>
+									</c:forEach>    
+                            	</tbody>
+						</c:if>                            
+                        	</table>
+                   	</form>
+               		</div>
+          		</div>
+     		</div>
+  		</div>
+	</section>
     <!-- Shoping Cart Section End -->
 
     <!-- Footer Section Begin -->

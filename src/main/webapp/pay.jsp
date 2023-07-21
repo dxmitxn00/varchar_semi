@@ -5,11 +5,11 @@
 <html>
 
 <!-- ● bdatas 객체배열
-		{ buyNum(주문번호),
-		  buySerial(주문시리얼번호),
-	   	  teaPice(상품가격) 
-	   	  teaCnt(상품수량) } 데이터 필요 -->
-<!-- ● buyNum(주문번호) 데이터 보냄 -->
+		{ teaPice(상품가격), 
+	   	  teaCnt(상품수량) },
+	   	  teaName(상품이름),
+	   	 paymentCustomer(주문자이름) 데이터 필요 -->
+<!-- ● 보낼 데이터 없음 -->
 
 <head>
 <meta charset="UTF-8">
@@ -50,7 +50,7 @@
          */
         paymentWidget.requestPayment({
         	orderId: generateRandomString(),
-        	orderName: forEach'${ bdatas.teaName }',
+        	orderName: forEach'${ paymentName }',
             //successUrl: window.location.origin + "/success.jsp",
             successUrl: "http://localhost:8080/varchar_semi/paySuccess.jsp",
             failUrl: "http://localhost:8080/varchar_semi//payFail.jsp",

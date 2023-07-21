@@ -16,9 +16,9 @@
 	   	  memberPhone(회원연락처) },
 	   paymentName(결제수단),
 	   reviewDone(후기작성완료-boolean) 데이터 필요 -->
-<!-- ● buyNum(주문번호),
-	   buySerial(주문시리얼번호),
- 	   teaName(상품이름) 데이터 없음 -->
+<!-- ● buySerial(주문시리얼번호),
+ 	   teaName(상품이름),
+ 	   memberId(회원아이디) 데이터 보냄 -->
 
 <head>
     <meta charset="UTF-8">
@@ -128,6 +128,7 @@
                 	<div class="checkout__form">
 	                   	<form action="insertReviews.do?buySerial=${ bdatas.buySerial }" method="post">
 	                   	<input type="hidden" name="buySerial" value="${ bdatas.buySerial }">
+	                   	<input type="hidden" name="MemberID" value="${ bdatas.memberId }">
                 		<h4>주문번호 : ${ buyNum }</h4><br><br><br>
                    		<div class="shoping__cart__table">
                 		<h4 id=teaInfo>상품정보</h4>
@@ -140,7 +141,7 @@
                                         	<img src="" alt="">상품이름
                                     	</td>
 										<td class="shoping__cart__item">
-                							<a href="orderDetail.do?num=${ v.teaNum }">${ v.teaName }</a>
+                							<a href="buyDetail.do?num=${ v.teaNum }">${ v.teaName }</a>
                                     	</td>
 										<td class="shoping__cart__item">
                 							${ v.buyCnt } 개

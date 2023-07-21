@@ -1,447 +1,302 @@
-<%@  page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	 import="model.TeaVO, java.util.ArrayList" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib tagdir="/WEB-INF/tags" prefix="try"%>
+
+<jsp:useBean id="tDAO" class="model.TeaDAO" />
+<jsp:useBean id="tVO" class="model.TeaVO" />
+<jsp:setProperty property="*" name="tVO" />
+
 <!DOCTYPE html>
-<html lang="zxx">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Ogani Template">
-    <meta name="keywords" content="Ogani, unica, creative, html">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ogani | Template</title>
+<meta charset="UTF-8">
+<meta name="description" content="Ogani Template">
+<meta name="keywords" content="Ogani, unica, creative, html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Ogani | Template</title>
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+<!-- Google Font -->
+<link
+	href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap"
+	rel="stylesheet">
 
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+<!-- Css Styles -->
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+<link rel="stylesheet" href="css/nice-select.css" type="text/css">
+<link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+<link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+<link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+<link rel="stylesheet" href="css/style.css" type="text/css">
+<style type="text/css">
+.shoping__cart__table {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+</style>
 </head>
-
 <body>
-    <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
-    </div>
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
 
-    <!-- Humberger Begin -->
-    <div class="humberger__menu__overlay"></div>
-    <div class="humberger__menu__wrapper">
-        <div class="humberger__menu__logo">
-            <a href="#"><img src="img/logo.png" alt=""></a>
-        </div>
-        <div class="humberger__menu__cart">
-            <ul>
-                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-            </ul>
-            <div class="header__cart__price">item: <span>$150.00</span></div>
-        </div>
-        <div class="humberger__menu__widget">
-            <div class="header__top__right__language">
-                <img src="img/language.png" alt="">
-                <div>English</div>
-                <span class="arrow_carrot-down"></span>
-                <ul>
-                    <li><a href="#">Spanis</a></li>
-                    <li><a href="#">English</a></li>
-                </ul>
-            </div>
-            <div class="header__top__right__auth">
-                <a href="#"><i class="fa fa-user"></i> Login</a>
-            </div>
-        </div>
-        <nav class="humberger__menu__nav mobile-menu">
-            <ul>
-                <li class="active"><a href="./index.html">Home</a></li>
-                <li><a href="./shop-grid.html">Shop</a></li>
-                <li><a href="#">Pages</a>
-                    <ul class="header__menu__dropdown">
-                        <li><a href="./shop-details.html">Shop Details</a></li>
-                        <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                        <li><a href="./checkout.html">Check Out</a></li>
-                        <li><a href="./blog-details.html">Blog Details</a></li>
-                    </ul>
-                </li>
-                <li><a href="./blog.html">Blog</a></li>
-                <li><a href="./contact.html">Contact</a></li>
-            </ul>
-        </nav>
-        <div id="mobile-menu-wrap"></div>
-        <div class="header__top__right__social">
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-linkedin"></i></a>
-            <a href="#"><i class="fa fa-pinterest-p"></i></a>
-        </div>
-        <div class="humberger__menu__contact">
-            <ul>
-                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                <li>Free Shipping for all Order of $99</li>
-            </ul>
-        </div>
-    </div>
-    <!-- Humberger End -->
+	<!-- Humberger Begin -->
+	<try:Humberger />
+	<!-- Humberger End -->
 
-    <!-- Header Section Begin -->
-    <header class="header">
-        <div class="header__top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="header__top__left">
-                            <ul>
-                                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                                <li>Free Shipping for all Order of $99</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="header__top__right">
-                            <div class="header__top__right__social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-linkedin"></i></a>
-                                <a href="#"><i class="fa fa-pinterest-p"></i></a>
-                            </div>
-                            <div class="header__top__right__language">
-                                <img src="img/language.png" alt="">
-                                <div>English</div>
-                                <span class="arrow_carrot-down"></span>
-                                <ul>
-                                    <li><a href="#">Spanis</a></li>
-                                    <li><a href="#">English</a></li>
-                                </ul>
-                            </div>
-                            <div class="header__top__right__auth">
-                                <a href="#"><i class="fa fa-user"></i> Login</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="header__logo">
-                        <a href="./index.html"><img src="img/logo.png" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <nav class="header__menu">
-                        <ul>
-                            <li><a href="./index.html">Home</a></li>
-                            <li class="active"><a href="./shop-grid.html">Shop</a></li>
-                            <li><a href="#">Pages</a>
-                                <ul class="header__menu__dropdown">
-                                    <li><a href="./shop-details.html">Shop Details</a></li>
-                                    <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                                    <li><a href="./checkout.html">Check Out</a></li>
-                                    <li><a href="./blog-details.html">Blog Details</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="./blog.html">Blog</a></li>
-                            <li><a href="./contact.html">Contact</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="col-lg-3">
-                    <div class="header__cart">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-                        </ul>
-                        <div class="header__cart__price">item: <span>$150.00</span></div>
-                    </div>
-                </div>
-            </div>
-            <div class="humberger__open">
-                <i class="fa fa-bars"></i>
-            </div>
-        </div>
-    </header>
-    <!-- Header Section End -->
+	<!-- Header Section Begin -->
+	<try:Head />
+	<!-- Header Section End -->
 
-    <!-- Hero Section Begin -->
-    <section class="hero hero-normal">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="hero__categories">
-                        <div class="hero__categories__all">
-                            <i class="fa fa-bars"></i>
-                            <span>All departments</span>
-                        </div>
-                        <ul>
-                            <li><a href="#">Fresh Meat</a></li>
-                            <li><a href="#">Vegetables</a></li>
-                            <li><a href="#">Fruit & Nut Gifts</a></li>
-                            <li><a href="#">Fresh Berries</a></li>
-                            <li><a href="#">Ocean Foods</a></li>
-                            <li><a href="#">Butter & Eggs</a></li>
-                            <li><a href="#">Fastfood</a></li>
-                            <li><a href="#">Fresh Onion</a></li>
-                            <li><a href="#">Papayaya & Crisps</a></li>
-                            <li><a href="#">Oatmeal</a></li>
-                            <li><a href="#">Fresh Bananas</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-9">
-                    <div class="hero__search">
-                        <div class="hero__search__form">
-                            <form action="#">
-                                <div class="hero__search__categories">
-                                    All Categories
-                                    <span class="arrow_carrot-down"></span>
-                                </div>
-                                <input type="text" placeholder="What do yo u need?">
-                                <button type="submit" class="site-btn">SEARCH</button>
-                            </form>
-                        </div>
-                        <div class="hero__search__phone">
-                            <div class="hero__search__phone__icon">
-                                <i class="fa fa-phone"></i>
-                            </div>
-                            <div class="hero__search__phone__text">
-                                <h5>+65 11.188.888</h5>
-                                <span>support 24/7 time</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Hero Section End -->
+	<!-- Hero Section Begin -->
+	<section class="hero hero-normal">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3">
+					<div class="hero__categories">
+						<div class="hero__categories__all">
+							<i class="fa fa-bars"></i> <span>All departments</span>
+						</div>
+						<ul>
+							<li><a href="#">Fresh Meat</a></li>
+							<li><a href="#">Vegetables</a></li>
+							<li><a href="#">Fruit & Nut Gifts</a></li>
+							<li><a href="#">Fresh Berries</a></li>
+							<li><a href="#">Ocean Foods</a></li>
+							<li><a href="#">Butter & Eggs</a></li>
+							<li><a href="#">Fastfood</a></li>
+							<li><a href="#">Fresh Onion</a></li>
+							<li><a href="#">Papayaya & Crisps</a></li>
+							<li><a href="#">Oatmeal</a></li>
+							<li><a href="#">Fresh Bananas</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-9">
+					<div class="hero__search">
+						<div class="hero__search__form">
+							<form action="#">
+								<div class="hero__search__categories">
+									All Categories <span class="arrow_carrot-down"></span>
+								</div>
+								<input type="text" placeholder="What do yo u need?">
+								<button type="submit" class="site-btn">SEARCH</button>
+							</form>
+						</div>
+						<div class="hero__search__phone">
+							<div class="hero__search__phone__icon">
+								<i class="fa fa-phone"></i>
+							</div>
+							<div class="hero__search__phone__text">
+								<h5>+65 11.188.888</h5>
+								<span>support 24/7 time</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Hero Section End -->
 
-    <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="breadcrumb__text">
-                        <h2>Shopping Cart</h2>
-                        <div class="breadcrumb__option">
-                            <a href="./index.html">Home</a>
-                            <span>Shopping Cart</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Breadcrumb Section End -->
+	<!-- Breadcrumb Section Begin -->
+	<section class="breadcrumb-section set-bg"
+		data-setbg="img/breadcrumb.jpg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<div class="breadcrumb__text">
+						<h2>Shopping Cart</h2>
+						<div class="breadcrumb__option">
+							<a href="./index.html">Home</a> <span>Shopping Cart</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Breadcrumb Section End -->
 
-    <!-- Shoping Cart Section Begin -->
-    <section class="shoping-cart spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="shoping__cart__table">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th class="shoping__product">Products</th>
-                                    <th>Price</th>
-                                    <th>Quantity</th>
-                                    <th>Total</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="shoping__cart__item">
-                                        <img src="img/cart/cart-1.jpg" alt="">
-                                        <h5>Vegetable’s Package</h5>
-                                    </td>
-                                    <td class="shoping__cart__price">
-                                        $55.00
-                                    </td>
-                                    <td class="shoping__cart__quantity">
-                                        <div class="quantity">
-                                            <div class="pro-qty">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="shoping__cart__total">
-                                        ${data.price}
-                                    </td>
-                                    <td class="shoping__cart__item__close">
-                                        <span class="icon_close"></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="shoping__cart__item">
-                                        <img src="img/cart/cart-2.jpg" alt="">
-                                        <h5>Fresh Garden Vegetable</h5>
-                                    </td>
-                                    <td class="shoping__cart__price">
-                                        $39.00
-                                    </td>
-                                    <td class="shoping__cart__quantity">
-                                        <div class="quantity">
-                                            <div class="pro-qty">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="shoping__cart__total">
-                                        $39.99
-                                    </td>
-                                    <td class="shoping__cart__item__close">
-                                        <span class="icon_close"></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="shoping__cart__item">
-                                        <img src="img/cart/cart-3.jpg" alt="">
-                                        <h5>Organic Bananas</h5>
-                                    </td>
-                                    <td class="shoping__cart__price">
-                                        $69.00
-                                    </td>
-                                    <td class="shoping__cart__quantity">
-                                        <div class="quantity">
-                                            <div class="pro-qty">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="shoping__cart__total">
-                                        $69.99
-                                    </td>
-                                    <td class="shoping__cart__item__close">
-                                        <span class="icon_close"></span>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="shoping__cart__btns">
-                        <a href="#" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
-                        <a href="#" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
-                            Upadate Cart</a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="shoping__continue">
-                        <div class="shoping__discount">
-                            <h5>Discount Codes</h5>
-                            <form action="#">
-                                <input type="text" placeholder="Enter your coupon code">
-                                <button type="submit" class="site-btn">APPLY COUPON</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="shoping__checkout">
-                        <h5>Cart Total</h5>
-                        <ul>
-                            <li>Subtotal <span>$454.98</span></li>
-                            <li>Total <span>$454.98</span></li>
-                        </ul>
-                        <a href="#" class="primary-btn">PROCEED TO CHECKOUT</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Shoping Cart Section End -->
+	<!-- Shoping Cart Section Begin -->
+	<section class="shoping-cart spad">
+		<div class="container edit">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="shoping__cart__table ">
+						<c:if test="${empty sessionScope.cart}">
+							<br>
+							<br>
+							<br>
+							<img src="img/cart/cart.png" alt="">
+							<br>
+							<br>
+							<br>
+							<br>
+							<br>
+							<br>
+							<h2>💚현재 장바구니 비어있어요💚
+						</c:if>
+						<c:if test="${not empty sessionScope.cart}">
+							<table>
+								<thead>
+									<tr>
+										<th class="shoping__product">상품</th>
+										<th>가격</th>
+										<th>수량</th>
+										<th>총 금액</th>
+										<th></th>
+									</tr>
+								</thead>
+								<!-- 장바구니 담기는 기능  -->
+								<tbody>
 
-    <!-- Footer Section Begin -->
-    <footer class="footer spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="footer__about">
-                        <div class="footer__about__logo">
-                            <a href="./index.html"><img src="img/logo.png" alt=""></a>
-                        </div>
-                        <ul>
-                            <li>Address: 60-49 Road 11378 New York</li>
-                            <li>Phone: +65 11.188.888</li>
-                            <li>Email: hello@colorlib.com</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
-                    <div class="footer__widget">
-                        <h6>Useful Links</h6>
-                        <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">About Our Shop</a></li>
-                            <li><a href="#">Secure Shopping</a></li>
-                            <li><a href="#">Delivery infomation</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Our Sitemap</a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="#">Who We Are</a></li>
-                            <li><a href="#">Our Services</a></li>
-                            <li><a href="#">Projects</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Innovation</a></li>
-                            <li><a href="#">Testimonials</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-12">
-                    <div class="footer__widget">
-                        <h6>Join Our Newsletter Now</h6>
-                        <p>Get E-mail updates about our latest shop and special offers.</p>
-                        <form action="#">
-                            <input type="text" placeholder="Enter your mail">
-                            <button type="submit" class="site-btn">Subscribe</button>
-                        </form>
-                        <div class="footer__widget__social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-pinterest"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="footer__copyright">
-                        <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
-                        <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- Footer Section End -->
+									<c:forEach var="cart" items="${cart}">
+										<tr>
+											<td class="shoping__cart__item">
+												<img src="${cart.imageUrl}" alt="${cart.teaName}"  width = "150px" height="150px">
+													<h5>${cart.teaName}</h5>
+											</td>
+											<td class="shoping__cart__price">${cart.teaPrice}원</td>
+											<td class="shoping__cart__quantity">
+												<div class="quantity">
+													<div class="pro-qty">
+														<input type="text" value="${cart.teaCnt}">
+													</div>
+												</div>
+											</td>
+											<td class="shoping__cart__total">???원</td>
+											<td class="shoping__cart__item__close"><span
+												class="icon_close"></span> <script
+													src="https://code.jquery.com/jquery-3.7.0.js"
+													integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+													crossorigin="anonymous"></script>
+<script>
 
-    <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/mixitup.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/main.js"></script>
+   // onLoad 함수란  DOM이 실행되고  함수가 실행 되도록 하는 함수 (HTML BODY 영역이 모두 로드 된 후 실행)
+    window.onload = UnitPriceSummary;
+   // 처음 페이지가 로딩 될떄  존재하는 상품의 가격 갯수를 지정하는 초기값 함수   //UnitPriceSummary(); <-- 해당 함수호출은 시작되지만  계산을 못함 
+  
+   function UnitPriceSummary(){
+      
+      // table-body-row 영역을 가지고옴 
+      const rows = document.querySelectorAll(".table-body-row");
+      var sSubTotal = 0;
+      
+      // 반복문으로 table-body-row 영역을  돌면서(i)  td가 2번쨰(이름), 3번쨰(가격) ,4번째 (갯수)를 가져옴 
+      for (var i = 0; i < rows.length; i++) {
+         var productName = ${cart.teaName};                        // 이름
+         var sPrice      = ${cart.teaPrice};  // 가격    // .replace(/[^\w]/g, '') 특수문자 제거 정규식으로  숫자만 남김
+         var quantityInputs = ${cart.teaCnt};
+         var sQty           = quantityInputs[i].value;   
+         
+         // 위에 가져온 값을  넣어주는 역활 
+         rows[i].querySelectorAll("td")[5].innerText = "$"+(sPrice * sQty).toString(); 
+         sSubTotal = sSubTotal + (sPrice * sQty); 
+      }
+      
+      document.getElementById("subTotalTD").innerText = "$"+sSubTotal.toString(); // 숫자이기 때문에 .toString(); 로 String 형변환
+      //document.getElementById("shippingTD").innerText = "$"+sSubTotal.toString(); // 배달료 , 일단 $5로 고정
 
+      var shippingTDValue = document.getElementById("shippingTD").innerText.replace(/[^\d.-]/g, ''); // 숫자, 점(.), 음수(-)만 남깁니다.
+      var shippingValue = parseFloat(shippingTDValue); // 문자열을 숫자로 변환합니다.
+
+      document.getElementById("totalTD").innerText = "$"+(sSubTotal + shippingValue).toString();
+
+   
+   }
+
+
+// 상품의 삭제버튼을 클릭시  해당 상품 삭제 
+   let originalRowCount = document.querySelectorAll('.table-body-row').length;
+
+   
+   function DeleteProduct(product){
+      //console.log(originalRowCount);
+      if(originalRowCount<= 1){
+         alert("마지막 품목 입니다. ");
+         return;
+      }
+
+      var row = document.getElementById(product);
+      if (row) {
+          row.parentNode.removeChild(row);
+         originalRowCount = originalRowCount-1;
+       } else {
+         alert("Product with ID " + product + " not found.");
+       }
+
+       UnitPriceSummary();
+   }
+
+   
+// 갯수 증가 함수 
+   const tdElements = document.querySelectorAll('.product-quantity');
+   tdElements.forEach(function(td) {
+      const input = td.querySelector('input');   
+      td.addEventListener('click', function() {
+         input.value = input.value; 
+         UnitPriceSummary();
+      });
+   });
+
+   
+</script>
+</td>
+
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="shoping__cart__btns">
+						<a href="teaListPage.do" class="primary-btn cart-btn">CONTINUE
+							SHOPPING </a> <a href="#" class="primary-btn cart-btn cart-btn-right">
+							<c:remove var="cartItems" scope="session" /> <span
+							class="icon_loading"></span> 장바구니 비우기
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="shoping__continue"></div>
+				</div>
+				<div class="col-lg-6">
+					<div class="shoping__checkout">
+						<h5>Cart Total</h5>
+						<ul>
+							<li>Total <span>${total}원</span></li>
+						</ul>
+						<a href="order.do" class="primary-btn">결 제 하 기</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		</c:if>
+	</section>
+	<!-- Shoping Cart Section End -->
+
+	<!-- Footer Section Begin -->
+	<try:Footer />
+	<!-- Footer Section End -->
+
+	<!-- Js Plugins -->
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.nice-select.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+	<script src="js/jquery.slicknav.js"></script>
+	<script src="js/mixitup.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/main.js"></script>
 
 </body>
-
 </html>

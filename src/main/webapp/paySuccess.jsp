@@ -61,6 +61,18 @@
     <title>결제 성공</title>
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <style type="text/css">
+    	#mainBtn {
+    		display: inline-block;
+    		font-size: 17px;
+    		color: #ffffff;
+    		text-transform: uppercase;
+    		letter-spacing: 1px;
+    		border: 1px solid #b2b2b2;
+    		padding: 14px 20px 12px;
+    		border-radius: 25px;
+    	}
+    </style>
 </head>
 <body>
 <section>
@@ -85,6 +97,9 @@
         <%
     }
     %>
+    
+    <!-- 완료 버튼 -->
+    <a id="mainBtn" href="paySuccess.do">메인으로</a>
 
 </section>
 </body>
