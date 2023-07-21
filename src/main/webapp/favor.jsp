@@ -115,8 +115,8 @@
 									 <c:forEach var="item" items="${fdatas}"> 
 										<tr>
 											<td class="shoping__cart__item">
-												<img src="이미지${item.imageUrl}" alt="${item.teaName}" width= "150px" height="150px">
-												<h5>${item.teaName}</h5></td>
+												<img src="이미지${item.imageUrl}" alt="${item.teaName}" width= "150px" height="150px"></td>
+													<td><a href="buyDetailPage.do">${ item.teaName }</a></td>
 											<td class="shoping__cart__price">${item.price}원</td>
 											<td>
 												<input type="submit" value="찜 삭제">
